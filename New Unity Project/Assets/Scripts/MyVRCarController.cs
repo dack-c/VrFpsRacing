@@ -23,9 +23,15 @@ public class MyVRCarController : MonoBehaviour
 
     public Grabbable joystickGrabbable;
 
+    private float xButtonDownFloat;
+    private float aButtonDownFloat;
+
     void Update()
     {
-        accelFloat = InputBridge.Instance.RightTrigger + -InputBridge.Instance.LeftTrigger;
+        //accelFloat = InputBridge.Instance.RightTrigger + -InputBridge.Instance.LeftTrigger;
+        xButtonDownFloat = (InputBridge.Instance.XButtonDown == true) ? 1.0f : 0.0f;
+        aButtonDownFloat = (InputBridge.Instance.AButtonDown == true) ? 1.0f : 0.0f;
+        accelFloat = xButtonDownFloat + -aButtonDownFloat;
 
         if (InputBridge.Instance.AButton)
         {

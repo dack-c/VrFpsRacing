@@ -34,7 +34,7 @@ public class CarExit : MonoBehaviour
     void Update()
     {
 
-        if (playerController.transform.position.y < -75f && intheCar == true || intheCar == true && InputBridge.Instance.XButtonDown)
+        if (playerController.transform.position.y < -75f && intheCar == true || intheCar == true && InputBridge.Instance.YButtonDown)
         {
             playerController.transform.parent = xrRig.transform;
 
