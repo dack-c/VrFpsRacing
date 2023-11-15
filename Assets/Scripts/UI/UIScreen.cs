@@ -4,7 +4,6 @@ public class UIScreen : MonoBehaviour
 {
 	public bool isModal = false;
 	[SerializeField] private UIScreen previousScreen = null;
-	[SerializeField] private UIScreen RoomScreen = null;
 	[SerializeField] private UIScreen LoadingScreen = null;
 
 	public static UIScreen activeScreen;
@@ -35,8 +34,6 @@ public class UIScreen : MonoBehaviour
 	{
 		activeScreen?.BackTo(null);
 	}
-
-	// Instance Methods
 
 	public void FocusScreen(UIScreen screen)
 	{
@@ -78,18 +75,6 @@ public class UIScreen : MonoBehaviour
 
 		if (showLoading)
 			Focus(LoadingScreen);
-	}
-
-	public void FocusRoom()
-	{
-		if (RoomScreen == null) return;
-
-		if (activeScreen.previousScreen)
-		{
-			activeScreen.previousScreen.Defocus();
-			activeScreen.Defocus();
-		}
-		Focus(RoomScreen);
 	}
 
 	public string GetPreviousScreenName()
