@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Carscene.unity
     guid: 39a22764ca98b3e4d841eb593bb8b2f6
+  - enabled: 1
+    path: Assets/Scene/MainScene.unity
+    guid: fca3a7e769acd904e86df1951fb033bc
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7b5f6d480ba03824b88200bb1949cea4,
       type: 2}

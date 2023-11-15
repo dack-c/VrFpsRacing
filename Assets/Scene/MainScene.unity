@@ -1380,7 +1380,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isModal: 0
   previousScreen: {fileID: 0}
-  RoomScreen: {fileID: 0}
   LoadingScreen: {fileID: 0}
 --- !u!1 &210902473
 GameObject:
@@ -4633,6 +4632,7 @@ GameObject:
   - component: {fileID: 831111303}
   - component: {fileID: 831111302}
   - component: {fileID: 831111305}
+  - component: {fileID: 831111306}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -4757,6 +4757,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX_Click: {fileID: 8300000, guid: 6ed81aa9fad0e384a87a281bf2d38942, type: 3}
   SFX_HoverOver: {fileID: 8300000, guid: ea7ce05bb3ca02742b2d8a7be56292a6, type: 3}
+--- !u!114 &831111306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831111300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b456f4e1aaac28b48a8248b4626f7809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &838359334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7357,7 +7369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isModal: 0
   previousScreen: {fileID: 0}
-  RoomScreen: {fileID: 0}
   LoadingScreen: {fileID: 0}
 --- !u!114 &1308496861
 MonoBehaviour:
@@ -8959,7 +8970,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isModal: 0
   previousScreen: {fileID: 0}
-  RoomScreen: {fileID: 0}
   LoadingScreen: {fileID: 0}
 --- !u!1 &1596749824
 GameObject:
