@@ -17,6 +17,7 @@ public class ShiftSelect : MonoBehaviour
     public void Automatic()
     {
         currentGear = VehicleControl.GetComponent<VehicleControl>().currentGear;
+        VehicleControl.GetComponent<VehicleControl>().NeutralGear = false;
 
         stickShifter.SetActive(false);
         if (currentGear < 1)
