@@ -1,3 +1,4 @@
 .7z filter=lfs diff=lfs merge=lfs -text
 New[[:space:]]Unity[[:space:]]Project/Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
 New[[:space:]]Unity[[:space:]]Project/Library/PackageCache/com.unity.toolchain.win-x86_64-linux-x86_64@2.0.4/data~/payload.tar.7z filter=lfs diff=lfs merge=lfs -text
+New[[:space:]]Unity[[:space:]]Project/Library/PackageCache/com.unity.burst@1.8.7/.Runtime/libburst-llvm-15.dylib filter=lfs diff=lfs merge=lfs -text
