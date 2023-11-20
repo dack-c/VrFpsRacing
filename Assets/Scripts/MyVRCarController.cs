@@ -29,11 +29,11 @@ public class MyVRCarController : MonoBehaviour
     void Update()
     {
         //accelFloat = InputBridge.Instance.RightTrigger + -InputBridge.Instance.LeftTrigger;
-        xButtonDownFloat = (InputBridge.Instance.XButtonDown == true) ? 1.0f : 0.0f;
-        aButtonDownFloat = (InputBridge.Instance.AButtonDown == true) ? 1.0f : 0.0f;
+        xButtonDownFloat = (InputBridge.Instance.XButtonDown || InputBridge.Instance.XButton) ? 1.0f : 0.0f;
+        aButtonDownFloat = (InputBridge.Instance.AButtonDown || InputBridge.Instance.AButton) ? 1.0f : 0.0f;
         accelFloat = xButtonDownFloat + -aButtonDownFloat;
 
-        if (InputBridge.Instance.AButton)
+        if (InputBridge.Instance.BButton || InputBridge.Instance.BButtonDown)
         {
             brakeBool = true;
         }

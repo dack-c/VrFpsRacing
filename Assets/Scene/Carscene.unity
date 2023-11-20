@@ -18391,6 +18391,11 @@ PrefabInstance:
       objectReference: {fileID: -6192745018564635143, guid: 27bafa1c7d8a77b47985ab70c0511986,
         type: 3}
     - target: {fileID: 111141501, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: BButtonDownAction
+      value: 
+      objectReference: {fileID: -5846041515480192725, guid: 27bafa1c7d8a77b47985ab70c0511986,
+        type: 3}
+    - target: {fileID: 111141501, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: XButtonDownAction
       value: 
       objectReference: {fileID: 4943835563994868457, guid: 27bafa1c7d8a77b47985ab70c0511986,
