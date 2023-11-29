@@ -33,8 +33,15 @@ public class CarExit : MonoBehaviour
 
     void Update()
     {
+        if(InputBridge.Instance.YButtonDown)
+        {
+            ExitCarIfInTheCar();
+        }
+    }
 
-        if (playerController.transform.position.y < -75f && intheCar == true || intheCar == true && InputBridge.Instance.YButtonDown)
+    public void ExitCarIfInTheCar()
+    {
+        if (playerController.transform.position.y < -75f && intheCar == true || intheCar == true)
         {
             playerController.transform.parent = xrRig.transform;
 
@@ -69,6 +76,5 @@ public class CarExit : MonoBehaviour
 
             intheCar = false;
         }
-
     }
 }
