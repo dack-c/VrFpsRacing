@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class ShiftSelect : MonoBehaviour
 {
-    public GameObject stickShifter;
     public GameObject VehicleControl; //edit
     public int currentGear;
 
     public void Standard()
     {
-        stickShifter.SetActive(true);
         VehicleControl.GetComponent<VehicleControl>().carSetting.automaticGear = false;
     }
 
@@ -19,7 +17,6 @@ public class ShiftSelect : MonoBehaviour
         currentGear = VehicleControl.GetComponent<VehicleControl>().currentGear;
         VehicleControl.GetComponent<VehicleControl>().NeutralGear = false;
 
-        stickShifter.SetActive(false);
         if (currentGear < 1)
         {
             VehicleControl.GetComponent<VehicleControl>().ShiftUp();
