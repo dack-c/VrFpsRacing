@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using BNG;
 
 public class VehicleDamageCustom : MonoBehaviour
 {
@@ -14,9 +15,9 @@ public class VehicleDamageCustom : MonoBehaviour
     public MeshFilter[] optionalMeshList;
     public AudioSource crashSound;
 
-    public float hp = 100.0f;
     public GameObject DestroyEffect;
     public CarExit carExitScript;
+    public Damageable damageable;
 
 
     private MeshFilter[] meshfilters;
@@ -25,6 +26,10 @@ public class VehicleDamageCustom : MonoBehaviour
 
     public void Start()
     {
+        if(damageable == null)
+        {
+            damageable = gameObject.GetComponent<Damageable>();
+        }
 
         if (optionalMeshList.Length > 0)
             meshfilters = optionalMeshList;
@@ -37,12 +42,9 @@ public class VehicleDamageCustom : MonoBehaviour
 
     void Update()
     {
-        if (hp <= 0)
-        {
-            carExitScript.ExitCarIfInTheCar();
-            Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        //carExitScript.ExitCarIfInTheCar();
+        //Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+        //Destroy(gameObject);
     }
 
 
@@ -52,6 +54,16 @@ public class VehicleDamageCustom : MonoBehaviour
 
     public float colDamageDelay = 0.1f;
     public float colDamageThreshold = 5.0f;
+
+    public void DestroyVehicle()
+    {
+        if(carExitScript)
+        {
+            carExitScript.ExitCarIfInTheCar();
+        }
+        Instantiate(DestroyEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -72,7 +84,8 @@ public class VehicleDamageCustom : MonoBehaviour
             if(Time.time > nextColDamageTime && colRelVel.magnitude > colDamageThreshold)
             {
                 Debug.Log("상대 충돌 속도(Unit per Sec): " + colRelVel.magnitude);
-                OnDamage(colRelVel.magnitude);
+                //OnDamage(colRelVel.magnitude);
+                damageable.DealDamage(colRelVel.magnitude);
                 nextColDamageTime = Time.time + colDamageDelay;
             }
 
@@ -90,12 +103,6 @@ public class VehicleDamageCustom : MonoBehaviour
         }
 
     }
-
-    public void OnDamage(float damage)
-    {
-        hp -= damage;
-    }
-
 
     // if called by SendMessage(), we only have 1 param
     public void OnMeshForce(Vector4 originPosAndForce)
