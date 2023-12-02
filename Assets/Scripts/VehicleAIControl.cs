@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VehicleAIControl : MonoBehaviour //AIÂ÷·®¿¡ ÀÌ ½ºÅ©¸³Æ®¸¦ ºÙÀÌ¸é µÊ.
+public class VehicleAIControl : MonoBehaviour //AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½.
 {
-    public VehicleControl vehicleControl; // ÀÌ º¯¼ö¿¡ ±× AIÂ÷·®ÀÇ VehicleControl.cs¸¦ ³Ö¾î¾ß ÇÔ.
+    public VehicleControl vehicleControl; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VehicleControl.csï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½.
 
-    //AIÂ÷·®ÀÇ ÃÊ±â ÄÁÆ®·Ñ »óÅÂµé
+    //AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½
     public float initialSteerFloat = 0f;
     public float initialAccelFloat = 0f;
     public bool initialBrakeBool = false;
@@ -26,12 +26,12 @@ public class VehicleAIControl : MonoBehaviour //AIÂ÷·®¿¡ ÀÌ ½ºÅ©¸³Æ®¸¦ ºÙÀÌ¸é µÊ
         
     }
 
-    //VehicleContol.csÀÇ keyboardControlMode°¡ false¿©¾ß ÀÌ ÇÔ¼ö°¡ Á¤»óÀÛµ¿ÇÔ
+    //VehicleContol.csï¿½ï¿½ keyboardControlModeï¿½ï¿½ falseï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½
     public void ChangeVehicleControlState(float steerFloat, float accelFloat, bool brakeBool, bool shiftBool)
     {
-        vehicleControl.steerFloat = steerFloat; //ÇÚµéÀÇ È¸Àü °¢µµ(-1~1. °ªÀÌ À½¼ö¸é ÁÂÃø È¸Àü, °ªÀÌ ¾ç¼ö¸é ¿ìÃø È¸Àü)
-        vehicleControl.accelFloat = accelFloat; //¿¢¼¿À» ¹âÀº Èû(0~1)
-        vehicleControl.brakeBool = brakeBool; //ºê·¹ÀÌÅ©¸¦ ¹â¾Ò´ÂÁö ¿©ºÎ
-        vehicleControl.shiftBool = shiftBool; //±â¾î¸¦ 2´ÜÀ¸·Î ¿Ã¸±°ÇÁö ¿©ºÎ(=ºÎ½ºÅÍ ¿©ºÎ)
+        vehicleControl.steerFloat = steerFloat; //ï¿½Úµï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(-1~1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½)
+        vehicleControl.accelFloat = accelFloat; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(0~1)
+        vehicleControl.brakeBool = brakeBool; //ï¿½ê·¹ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        vehicleControl.shiftBool = shiftBool; //ï¿½ï¿½î¸¦ 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(=ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     }
 }

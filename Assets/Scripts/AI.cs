@@ -11,7 +11,6 @@ public class AI : MonoBehaviour
     public List<Transform> waypoints;
     public int currentWaypoint;
     public GameObject controller;
-    public GameObject stickShifter;
     public float waypointRange;
     public float currentAngle;
     private float accelFloat;
@@ -28,14 +27,6 @@ public class AI : MonoBehaviour
     {
         waypoints = waypointCtrl.waypoints;
         currentWaypoint = 0;
-        controller.GetComponent<VehicleControl>().carSetting.automaticGear = true;
-        controller.GetComponent<VehicleControl>().NeutralGear = false;
-        stickShifter.SetActive(false);
-        if (currentGear < 1)
-        {
-            controller.GetComponent<VehicleControl>().ShiftUp();
-        }
-        controller.GetComponent<VehicleControl>().carSetting.automaticGear = true;
     }
 
     // Update is called once per frame
@@ -58,11 +49,11 @@ public class AI : MonoBehaviour
         }
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        currentAngle = Vector3.SignedAngle(fwd, waypoints[currentWaypoint].position - transform.position,Vector3.up);
-        controller.GetComponent<VehicleControl>().accelFloat = accelFloat;
-        controller.GetComponent<VehicleControl>().steerFloat = currentAngle;
-        controller.GetComponent<VehicleControl>().brakeBool = brakeBool;
-        controller.GetComponent<VehicleControl>().shiftBool = shiftBool;
+        currentAngle = Vector3.SignedAngle(fwd, waypoints[currentWaypoint].position - transform.position,Vector3.up)/180;
+        controller.GetComponent<VehicleAIControl>().initialSteerFloat = currentAngle;
+        controller.GetComponent<VehicleAIControl>().initialAccelFloat = accelFloat;
+        controller.GetComponent<VehicleAIControl>().initialBrakeBool = brakeBool;
+        controller.GetComponent<VehicleAIControl>().initialShiftBool = shiftBool;
 
         Debug.DrawRay(transform.position, waypoints[currentWaypoint].position-transform.position,Color.white);
     }
