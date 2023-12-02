@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5519237285223202892}
   - component: {fileID: 3548811758739760453}
   - component: {fileID: 1595496936399199466}
-  - component: {fileID: 8963939656215290053}
+  - component: {fileID: 3721201303061194873}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8963939656215290053
+--- !u!114 &3721201303061194873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,4 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ways:
     corner: 0
+    befCorner: 0
     waypoint_pos: {x: 0, y: 0, z: 0}

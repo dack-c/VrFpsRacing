@@ -8,9 +8,11 @@ public class AI : MonoBehaviour
 {
 
     public WaypointCtrl waypointCtrl;
-    public List<Transform> waypoints;
-    public int currentWaypoint;
+    public List<WaypointAttr.waypoint> waypoints;
     public GameObject controller;
+
+    public int currentWaypoint;
+    
     public float waypointRange;
     public float currentAngle;
     private float accelFloat;
@@ -18,7 +20,8 @@ public class AI : MonoBehaviour
     public float fullAccelRange;
     private bool brakeBool=false;
     private bool shiftBool = false;
-    private int currentGear;
+    public float handling=1;
+    public float cornerBrake = 2;
 
 
 
@@ -32,7 +35,7 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float waypointDist = Vector3.Distance(waypoints[currentWaypoint].position, transform.position);
+        float waypointDist = Vector3.Distance(waypoints[currentWaypoint].waypoint_pos, transform.position);
         if (waypointDist<waypointRange)
         {
             currentWaypoint++;
@@ -48,14 +51,36 @@ public class AI : MonoBehaviour
             accelFloat = 1.0f;
         }
 
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        currentAngle = Vector3.SignedAngle(fwd, waypoints[currentWaypoint].position - transform.position,Vector3.up)/180;
-        controller.GetComponent<VehicleAIControl>().initialSteerFloat = currentAngle;
-        controller.GetComponent<VehicleAIControl>().initialAccelFloat = accelFloat;
-        controller.GetComponent<VehicleAIControl>().initialBrakeBool = brakeBool;
-        controller.GetComponent<VehicleAIControl>().initialShiftBool = shiftBool;
+        
 
-        Debug.DrawRay(transform.position, waypoints[currentWaypoint].position-transform.position,Color.white);
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Vector3 toTarget = waypoints[currentWaypoint].waypoint_pos - transform.position;
+        float angle = Vector3.Angle(fwd, toTarget);
+        currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*handling;
+        if (waypoints[currentWaypoint].befCorner)
+        {
+            brakeBool = true;
+        }
+        else if(angle>=45)
+        {
+            brakeBool = true;
+        }
+        else
+        {
+            brakeBool = false;
+        }
+        if (waypoints[currentWaypoint].corner)
+        {
+            accelFloat /= cornerBrake;
+        }
+
+        controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(currentAngle, accelFloat,brakeBool,shiftBool);
+        //controller.GetComponent<VehicleAIControl>().initialSteerFloat = currentAngle;
+        //controller.GetComponent<VehicleAIControl>().initialAccelFloat = accelFloat;
+        //controller.GetComponent<VehicleAIControl>().initialBrakeBool = brakeBool;
+        //controller.GetComponent<VehicleAIControl>().initialShiftBool = shiftBool;
+
+        Debug.DrawRay(transform.position, toTarget,Color.white);
     }
 
 }
