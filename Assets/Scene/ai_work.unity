@@ -7061,6 +7061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111007749}
   - component: {fileID: 104751917}
+  - component: {fileID: 111007750}
   m_Layer: 1
   m_Name: LightR (1)
   m_TagString: Untagged
@@ -7218,6 +7219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110911753}
   - component: {fileID: 104801995}
+  - component: {fileID: 110911754}
   m_Layer: 1
   m_Name: LightR (1)
   m_TagString: Untagged
@@ -7476,6 +7478,29 @@ Transform:
   m_Father: {fileID: 110998315}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110911754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110744463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!4 &110911979
 Transform:
   m_ObjectHideFlags: 0
@@ -8117,6 +8142,29 @@ Transform:
   m_Father: {fileID: 110998315}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111007750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110712213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!4 &111009457
 Transform:
   m_ObjectHideFlags: 0
@@ -30092,6 +30140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717071123}
   - component: {fileID: 717071124}
+  - component: {fileID: 717071125}
   m_Layer: 1
   m_Name: LightR (1)
   m_TagString: Untagged
@@ -30176,6 +30225,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &717071125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717071122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &724987408
 GameObject:
   m_ObjectHideFlags: 0
@@ -40075,6 +40147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9052c63b1ba2b4983ebd95fc6c0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickShifter: {fileID: 0}
   VehicleControl: {fileID: 1382660421}
   currentGear: 0
 --- !u!114 &1130854097
@@ -41388,6 +41461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9052c63b1ba2b4983ebd95fc6c0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickShifter: {fileID: 0}
   VehicleControl: {fileID: 858664180}
   currentGear: 0
 --- !u!114 &1276548779
@@ -58332,6 +58406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9052c63b1ba2b4983ebd95fc6c0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickShifter: {fileID: 0}
   VehicleControl: {fileID: 110770741}
   currentGear: 0
 --- !u!114 &2566190279490350293

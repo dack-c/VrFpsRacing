@@ -126,6 +126,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &658405
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +529,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &4135972
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +637,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259317, y: 0.20160455, z: 0.39113528}
   m_Center: {x: 0.45616078, y: -0.12144462, z: -0.7715047}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &18226900
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,6 +5750,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &52094375
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5805,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259362, y: 0.40034562, z: 1.0858543}
   m_Center: {x: 0.3769773, y: -0.021011326, z: -0.42414272}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &58734483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,6 +5943,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4055161, y: 0.31470886, z: 0.6937018}
   m_Center: {x: 0, y: 0.30574507, z: 0.47767538}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &95314654
 GameObject:
   m_ObjectHideFlags: 0
@@ -6028,62 +6037,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &97920182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 97920183}
-  - component: {fileID: 97920184}
-  m_Layer: 1
-  m_Name: GrabPoint Right 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &97920183
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97920182}
-  m_LocalRotation: {x: -0.09411667, y: -0.019285828, z: -0.0018235563, w: 0.9953727}
-  m_LocalPosition: {x: 0.1584, y: -0.0037999973, z: -0.012899995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141403638}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: -10.803, y: -2.22, z: 0}
---- !u!114 &97920184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97920182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  HandPose: 0
-  LeftHandIsValid: 0
-  RightHandIsValid: 1
-  HandPosition: {fileID: 0}
-  MaxDegreeDifferenceAllowed: 360
-  IndexBlendMin: 0
-  IndexBlendMax: 0
-  ThumbBlendMin: 0
-  ThumbBlendMax: 0
-  ShowAngleGizmo: 1
 --- !u!114 &104186055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6712,100 +6665,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &108171744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 108171745}
-  - component: {fileID: 108171746}
-  m_Layer: 1
-  m_Name: LightR (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &108171745
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108171744}
-  m_LocalRotation: {x: 4.0141584e-25, y: -0.7071068, z: 8.028309e-25, w: 0.7071068}
-  m_LocalPosition: {x: 0.641, y: 0.226, z: -2.854}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1971952815}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &108171746
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108171744}
-  m_Enabled: 0
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0
-  m_Range: 0.4
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
-  m_RenderMode: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &110686989
 GameObject:
   m_ObjectHideFlags: 0
@@ -19091,6 +18950,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &140790755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
@@ -19194,6 +19054,8 @@ Transform:
   m_Father: {fileID: 154551978}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &144781730
 GameObject:
   m_ObjectHideFlags: 0
@@ -19329,40 +19191,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144781730}
   m_CullTransparentMesh: 1
---- !u!1 &154551977
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 154551978}
-  m_Layer: 1
-  m_Name: Rotator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &154551978
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154551977}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 141403638}
-  - {fileID: 689875575}
-  - {fileID: 1982113179}
-  m_Father: {fileID: 1148345257}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &178328436
 GameObject:
   m_ObjectHideFlags: 0
@@ -19416,6 +19244,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259213, y: 0.54662615, z: 1.8230803}
   m_Center: {x: 0.31869757, y: 0.052911542, z: -0.2675192}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &181942354
 GameObject:
   m_ObjectHideFlags: 0
@@ -19618,6 +19447,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1001 &216868412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19703,6 +19534,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d40cda62855726d4e8af62df4770098a, type: 3}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &248449334
 GameObject:
   m_ObjectHideFlags: 0
@@ -24647,6 +24479,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &252404700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 8512d52775bf95340b741dfb9552c938,
@@ -24720,6 +24554,15 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
+=======
+--- !u!1 &258759145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6380737228384949639, guid: bab352ace9d991441b7bd020a9ad5bfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1629469497}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &261490517
 GameObject:
   m_ObjectHideFlags: 0
@@ -24810,6 +24653,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &264558213
 GameObject:
   m_ObjectHideFlags: 0
@@ -25008,6 +24852,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &308929466
 GameObject:
   m_ObjectHideFlags: 0
@@ -25109,59 +24955,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308929466}
   m_CullTransparentMesh: 1
---- !u!1 &311435405
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311435406}
-  - component: {fileID: 311435407}
-  m_Layer: 0
-  m_Name: LeftUpperBack2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &311435406
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311435405}
-  m_LocalRotation: {x: 8.330652e-10, y: -0.0000000038233727, z: -0.17493713, w: 0.9845796}
-  m_LocalPosition: {x: -0.988, y: 0.619, z: -1.268}
-  m_LocalScale: {x: 0.115609996, y: 1, z: 0.43}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1533332420}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.15}
---- !u!65 &311435407
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311435405}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.36259362, y: 0.40034562, z: 1.0858543}
-  m_Center: {x: 0.3769773, y: -0.021011326, z: -0.42414272}
 --- !u!1 &313685762
 GameObject:
   m_ObjectHideFlags: 0
@@ -25296,140 +25089,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313685762}
   m_CullTransparentMesh: 1
---- !u!1 &315186397
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 315186398}
-  - component: {fileID: 315186401}
-  - component: {fileID: 315186400}
-  - component: {fileID: 315186399}
-  m_Layer: 5
-  m_Name: Button (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &315186398
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315186397}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1080949275}
-  m_Father: {fileID: 1276548777}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &315186399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315186397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 315186400}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1276548778}
-        m_TargetAssemblyTypeName: ShiftSelect, Assembly-CSharp
-        m_MethodName: Standard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &315186400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315186397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &315186401
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315186397}
-  m_CullTransparentMesh: 1
 --- !u!1 &315240065
 GameObject:
   m_ObjectHideFlags: 0
@@ -25483,6 +25142,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259213, y: 0.54662615, z: 1.8230803}
   m_Center: {x: 0.31869757, y: 0.052911542, z: -0.2675192}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1001 &333061205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25697,6 +25357,8 @@ Transform:
   m_Father: {fileID: 858664184}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &377670332
 GameObject:
   m_ObjectHideFlags: 0
@@ -26472,6 +26134,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &451745107
 GameObject:
   m_ObjectHideFlags: 0
@@ -26562,6 +26225,8 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 526030628}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &467706701
 GameObject:
   m_ObjectHideFlags: 0
@@ -26697,6 +26362,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467706701}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &473482224
 GameObject:
   m_ObjectHideFlags: 0
@@ -26934,6 +26600,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &480025878
 GameObject:
   m_ObjectHideFlags: 0
@@ -27105,6 +26773,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &492910678
 GameObject:
   m_ObjectHideFlags: 0
@@ -27321,6 +26990,8 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &499896456
 GameObject:
   m_ObjectHideFlags: 0
@@ -27480,6 +27151,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259323, y: 0.20160455, z: 0.47173873}
   m_Center: {x: 0.45616075, y: -0.12144462, z: -0.7312021}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &525955916
 GameObject:
   m_ObjectHideFlags: 0
@@ -27739,6 +27411,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f75a4a1ec4271442a6c51de842cadf0, type: 3}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &531234468
 GameObject:
   m_ObjectHideFlags: 0
@@ -27916,6 +27590,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf16560804a0b324398e029ca649ad2d, type: 3}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &559221982
 GameObject:
   m_ObjectHideFlags: 0
@@ -28387,6 +28062,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &600074821
 GameObject:
   m_ObjectHideFlags: 0
@@ -28714,6 +28391,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3514843, y: 0.13473481, z: 6.2512803}
   m_Center: {x: 0.024804637, y: -0.6073202, z: 0.039938636}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &622246325
 GameObject:
   m_ObjectHideFlags: 0
@@ -29777,6 +29455,8 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &694546238
 GameObject:
   m_ObjectHideFlags: 0
@@ -29920,6 +29600,7 @@ MonoBehaviour:
   OnPlayerTeleported:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &696568859
 GameObject:
   m_ObjectHideFlags: 0
@@ -30082,6 +29763,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259323, y: 0.20160455, z: 0.47173873}
   m_Center: {x: 0.45616075, y: -0.12144462, z: -0.7312021}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &717071122
 GameObject:
   m_ObjectHideFlags: 0
@@ -30222,6 +29905,7 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &725557924
 GameObject:
   m_ObjectHideFlags: 0
@@ -31388,6 +31072,8 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1264173743}
   m_SourcePrefab: {fileID: 100100000, guid: 5b867398112423d498e0e751feff052d, type: 3}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &831353044
 GameObject:
   m_ObjectHideFlags: 0
@@ -31493,6 +31179,7 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &837211417
 GameObject:
   m_ObjectHideFlags: 0
@@ -36508,6 +36195,8 @@ Transform:
   m_Father: {fileID: 2634802}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &858323155
 GameObject:
   m_ObjectHideFlags: 0
@@ -36552,6 +36241,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &858664180
 GameObject:
   m_ObjectHideFlags: 0
@@ -37352,6 +37042,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &931768445
 GameObject:
   m_ObjectHideFlags: 0
@@ -37486,6 +37178,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931768445}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &948228884
 GameObject:
   m_ObjectHideFlags: 0
@@ -37979,6 +37672,8 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1025112059
 GameObject:
   m_ObjectHideFlags: 0
@@ -38226,196 +37921,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030609961}
   m_CullTransparentMesh: 1
---- !u!1 &1039803127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1039803128}
-  - component: {fileID: 1039803129}
-  m_Layer: 1
-  m_Name: GrabPoint Right 8.5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1039803128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039803127}
-  m_LocalRotation: {x: -0.081129745, y: 0.029389957, z: 0.98245615, w: -0.1653305}
-  m_LocalPosition: {x: -0.1498, y: -0.0472, z: 0.0057}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141403638}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: -1.7720001, y: -9.742001, z: 199.256}
---- !u!114 &1039803129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039803127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  HandPose: 0
-  LeftHandIsValid: 0
-  RightHandIsValid: 1
-  HandPosition: {fileID: 0}
-  MaxDegreeDifferenceAllowed: 360
-  IndexBlendMin: 0
-  IndexBlendMax: 0
-  ThumbBlendMin: 0
-  ThumbBlendMax: 0
-  ShowAngleGizmo: 1
---- !u!1 &1043813783
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1043813784}
-  - component: {fileID: 1043813787}
-  - component: {fileID: 1043813786}
-  - component: {fileID: 1043813785}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1043813784
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043813783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2038368679}
-  m_Father: {fileID: 1276548777}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -129, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1043813785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043813783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1043813786}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1276548778}
-        m_TargetAssemblyTypeName: ShiftSelect, Assembly-CSharp
-        m_MethodName: Automatic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1043813786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043813783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1043813787
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043813783}
-  m_CullTransparentMesh: 1
 --- !u!1 &1047601015
 GameObject:
   m_ObjectHideFlags: 0
@@ -38508,6 +38013,7 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1049441066
 GameObject:
   m_ObjectHideFlags: 0
@@ -38541,11 +38047,21 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -6.458, y: 0, z: -33.776}
 --- !u!114 &1049441068
+=======
+--- !u!1 &1052769122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 186536, guid: b82529e8ddfc06e4fb493d04ff82ec97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932562742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052769126
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
   m_GameObject: {fileID: 1049441066}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -38895,11 +38411,26 @@ Transform:
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -2.375, y: 14.401001, z: -147.074}
 --- !u!114 &1059072877
+=======
+  m_GameObject: {fileID: 1052769122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb8830aaf351994b93ca5fae7118913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleControl: {fileID: 0}
+  initialSteerFloat: 0
+  initialAccelFloat: 1
+  initialBrakeBool: 0
+  initialShiftBool: 0
+--- !u!114 &1052769127
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
   m_GameObject: {fileID: 1059072875}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -38920,10 +38451,53 @@ MonoBehaviour:
   ShowAngleGizmo: 1
 --- !u!1 &1080949274
 GameObject:
+=======
+  m_GameObject: {fileID: 1052769122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6de38f13d6b1443b2c5a5a20ac08d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  SpawnOnDeath: {fileID: 0}
+  ActivateGameObjectsOnDeath: []
+  DeactivateGameObjectsOnDeath: []
+  DeactivateCollidersOnDeath: []
+  DestroyOnDeath: 1
+  DropOnDeath: 1
+  DestroyDelay: 0
+  Respawn: 0
+  RespawnTime: 10
+  RemoveBulletHolesOnDeath: 1
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052769128}
+        m_TargetAssemblyTypeName: VehicleDamageCustom, Assembly-CSharp
+        m_MethodName: DestroyVehicle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1052769128
+MonoBehaviour:
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1080949275}
@@ -39126,6 +38700,8 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
   m_GameObject: {fileID: 1052769122}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -39483,6 +39059,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089121908}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1090824522
 GameObject:
   m_ObjectHideFlags: 0
@@ -39671,6 +39248,8 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1292964509}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!33 &1091904655 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 3333680, guid: b82529e8ddfc06e4fb493d04ff82ec97,
@@ -39890,6 +39469,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4055161, y: 0.31470823, z: 0.6979472}
   m_Center: {x: 0, y: 0.302646, z: 0.15102586}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1001 &1121202568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40548,6 +40128,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259323, y: 0.20160455, z: 0.47173873}
   m_Center: {x: 0.45616075, y: -0.12144462, z: -0.7312021}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1185535650
 GameObject:
   m_ObjectHideFlags: 0
@@ -40584,6 +40166,7 @@ Transform:
   m_Father: {fileID: 110941697}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1193473110
 GameObject:
   m_ObjectHideFlags: 0
@@ -40761,6 +40344,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.362593, y: 0.29257047, z: 0.6140491}
   m_Center: {x: 0.41991794, y: -0.07547524, z: -0.9167046}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1218355384
 GameObject:
   m_ObjectHideFlags: 0
@@ -40814,6 +40399,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4055161, y: 0.31470823, z: 1.1853749}
   m_Center: {x: 0, y: 0.3026461, z: 0.39474085}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1222839834
 GameObject:
   m_ObjectHideFlags: 0
@@ -41002,6 +40588,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230481449}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1239651199
 GameObject:
   m_ObjectHideFlags: 0
@@ -41055,6 +40643,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4055161, y: 0.31470886, z: 0.6937018}
   m_Center: {x: 0, y: 0.30574507, z: 0.47767538}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1252175410
 GameObject:
   m_ObjectHideFlags: 0
@@ -41526,6 +41115,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259213, y: 0.54662615, z: 1.8230803}
   m_Center: {x: 0.31869757, y: 0.052911542, z: -0.2675192}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!4 &1279171052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d40cda62855726d4e8af62df4770098a,
@@ -41582,6 +41173,7 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1288356302
 GameObject:
   m_ObjectHideFlags: 0
@@ -42295,6 +41887,8 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
   m_FadeFactor: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1317864557
 GameObject:
   m_ObjectHideFlags: 0
@@ -42348,6 +41942,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1328096698
 GameObject:
   m_ObjectHideFlags: 0
@@ -42964,6 +42559,8 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1369359604
 GameObject:
   m_ObjectHideFlags: 0
@@ -43044,11 +42641,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369359604}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1382224519
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
+=======
+--- !u!114 &1373881844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8858460719086918109, guid: 1f75a4a1ec4271442a6c51de842cadf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088874545}
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -43088,6 +42693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
   handPoseType: 1
   SelectedHandPose: {fileID: 0}
   HandPose: 0
@@ -43485,6 +43091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1383757848
 GameObject:
   m_ObjectHideFlags: 0
@@ -43581,6 +43189,7 @@ RectTransform:
   m_AnchoredPosition: {x: 3.9, y: -0.79999924}
   m_SizeDelta: {x: 40, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1391601949
 GameObject:
   m_ObjectHideFlags: 0
@@ -43850,6 +43459,8 @@ Transform:
   m_Father: {fileID: 1655183000}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1427875132
 GameObject:
   m_ObjectHideFlags: 0
@@ -43986,223 +43597,6 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1430762980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1430762981}
-  - component: {fileID: 1430762982}
-  m_Layer: 1
-  m_Name: GrabPoint Right 10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1430762981
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430762980}
-  m_LocalRotation: {x: -0.08565574, y: -0.0104620205, z: 0.9510882, w: 0.29662248}
-  m_LocalPosition: {x: -0.1233, y: 0.0932, z: -0.0017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141403638}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -1.7720001, y: -9.742001, z: 145.50801}
---- !u!114 &1430762982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430762980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  HandPose: 0
-  LeftHandIsValid: 0
-  RightHandIsValid: 1
-  HandPosition: {fileID: 0}
-  MaxDegreeDifferenceAllowed: 360
-  IndexBlendMin: 0
-  IndexBlendMax: 0
-  ThumbBlendMin: 0
-  ThumbBlendMax: 0
-  ShowAngleGizmo: 1
---- !u!1 &1431070723
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1431070724}
-  - component: {fileID: 1431070725}
-  m_Layer: 1
-  m_Name: GrabPoint Right 10.5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1431070724
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431070723}
-  m_LocalRotation: {x: -0.083975784, y: -0.019859714, z: 0.91250235, w: 0.39986634}
-  m_LocalPosition: {x: -0.0836, y: 0.1284, z: -0.005699992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141403638}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 9.738001, y: 88.203, z: 222.51999}
---- !u!114 &1431070725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431070723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  HandPose: 0
-  LeftHandIsValid: 0
-  RightHandIsValid: 1
-  HandPosition: {fileID: 0}
-  MaxDegreeDifferenceAllowed: 360
-  IndexBlendMin: 0
-  IndexBlendMax: 0
-  ThumbBlendMin: 0
-  ThumbBlendMax: 0
-  ShowAngleGizmo: 1
---- !u!1 &1440793625
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1440793626}
-  - component: {fileID: 1440793629}
-  - component: {fileID: 1440793628}
-  - component: {fileID: 1440793627}
-  m_Layer: 1
-  m_Name: Cube (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1440793626
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440793625}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.32000548, z: -0.1971429}
-  m_LocalScale: {x: 0.07501294, y: 0.325, z: 0.43188342}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 689875575}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1440793627
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440793625}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1440793628
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440793625}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f1b421362f6dab94ead65ca98c6043fd, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1440793629
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440793625}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1448515587
 GameObject:
   m_ObjectHideFlags: 0
@@ -44307,6 +43701,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1457699682
 GameObject:
   m_ObjectHideFlags: 0
@@ -44621,6 +44016,14 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1932562742}
   m_PrefabAsset: {fileID: 0}
+=======
+--- !u!82 &1473240756 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8274614, guid: b82529e8ddfc06e4fb493d04ff82ec97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932562742}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1518340147
 GameObject:
   m_ObjectHideFlags: 0
@@ -44727,6 +44130,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3625913, y: 0.4003456, z: 1.2487117}
   m_Center: {x: 0.3769743, y: -0.021011386, z: -0.34271404}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1533332419
 GameObject:
   m_ObjectHideFlags: 0
@@ -45297,6 +44701,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614170130}
   m_Mesh: {fileID: 4300016, guid: 52f8a9226e9a0fd459fbbf5d5106632f, type: 3}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1620581250
 GameObject:
   m_ObjectHideFlags: 0
@@ -45403,62 +44809,6 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1623508584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1623508585}
-  - component: {fileID: 1623508586}
-  m_Layer: 1
-  m_Name: GrabPoint Left 8.5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1623508585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623508584}
-  m_LocalRotation: {x: -0.05553358, y: 0.0094205905, z: 0.16698346, w: 0.9843495}
-  m_LocalPosition: {x: -0.14850001, y: -0.05030001, z: -0.002799979}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141403638}
-  m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: -6.458, y: 0, z: 19.256}
---- !u!114 &1623508586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623508584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab52d2f563d6a2547a95671c153ebbb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handPoseType: 1
-  SelectedHandPose: {fileID: 0}
-  HandPose: 0
-  LeftHandIsValid: 1
-  RightHandIsValid: 0
-  HandPosition: {fileID: 0}
-  MaxDegreeDifferenceAllowed: 360
-  IndexBlendMin: 0
-  IndexBlendMax: 0
-  ThumbBlendMin: 0
-  ThumbBlendMax: 0
-  ShowAngleGizmo: 1
 --- !u!1001 &1629469497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45676,12 +45026,13 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1629469497}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 258759145}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 004633b72e37ef24281063ab28d86156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1638596693
 GameObject:
   m_ObjectHideFlags: 0
@@ -46645,6 +45996,8 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1704251547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8516297021300253504, guid: 4ac7df741a9c0a2418ec19477729ee3d,
@@ -46703,59 +46056,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1712707375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1712707376}
-  - component: {fileID: 1712707377}
-  m_Layer: 1
-  m_Name: BackUpper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1712707376
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712707375}
-  m_LocalRotation: {x: -0.24107501, y: 0, z: 0, w: 0.9705065}
-  m_LocalPosition: {x: 0.075, y: 0.75, z: -1.826}
-  m_LocalScale: {x: 1.3098843, y: -0.14371, z: 1.3966441}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1614170131}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -27.9, y: 0, z: 0}
---- !u!65 &1712707377
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712707375}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3391799, y: 0.36959088, z: 0.47012687}
-  m_Center: {x: 0.004773672, y: 0.25801763, z: 0}
 --- !u!1 &1715221780
 GameObject:
   m_ObjectHideFlags: 0
@@ -46862,124 +46162,6 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1734802483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1734802484}
-  - component: {fileID: 1734802486}
-  - component: {fileID: 1734802485}
-  m_Layer: 1
-  m_Name: LightR
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1734802484
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734802483}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.924, y: 0.226, z: -2.854}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1971952815}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1734802485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734802483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!108 &1734802486
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734802483}
-  m_Enabled: 0
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0
-  m_Range: 0.4
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
-  m_RenderMode: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1001 &1735577304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47298,6 +46480,7 @@ RectTransform:
   m_AnchoredPosition: {x: 141.8, y: -144}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1767330657
 GameObject:
   m_ObjectHideFlags: 0
@@ -47616,6 +46799,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1812161676
 GameObject:
   m_ObjectHideFlags: 0
@@ -47810,6 +46995,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814609010}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1815086919
 GameObject:
   m_ObjectHideFlags: 0
@@ -48459,6 +47645,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.36259317, y: 0.20160455, z: 0.39113528}
   m_Center: {x: 0.45616078, y: -0.12144462, z: -0.7715047}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &1889820727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 108990, guid: ac375dc36289de94181575d51096d152,
@@ -48929,6 +48117,7 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1915112697
 GameObject:
   m_ObjectHideFlags: 0
@@ -49038,6 +48227,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1001 &1932562742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49740,12 +48931,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1961889340}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &1964571416
 GameObject:
+=======
+--- !u!1 &1987296927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2251636036569019247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1987296941
+MonoBehaviour:
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1964571417}
@@ -50192,6 +49395,8 @@ GameObject:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
   m_GameObject: {fileID: 1987296927}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -50229,6 +49434,7 @@ GameObject:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 =======
   serializedVersion: 6
   m_Component:
@@ -50258,12 +49464,15 @@ Transform:
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> 77d04cc2 (긴급)
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!4 &2006912776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 424970, guid: ac375dc36289de94181575d51096d152,
     type: 3}
   m_PrefabInstance: {fileID: 1735577304}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!4 &2013937644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6380737228384949638, guid: bab352ace9d991441b7bd020a9ad5bfb,
@@ -50464,6 +49673,8 @@ MonoBehaviour:
   leftHandModel: {fileID: 1961889341}
   playerHeightExit: -0.025
   intheCar: 0
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &2029360574
 GameObject:
   m_ObjectHideFlags: 0
@@ -50517,6 +49728,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.362593, y: 0.29257047, z: 0.6140491}
   m_Center: {x: 0.41991794, y: -0.07547524, z: -0.9167046}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &2038368678
 GameObject:
   m_ObjectHideFlags: 0
@@ -50900,6 +50112,8 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &2070271497
 GameObject:
   m_ObjectHideFlags: 0
@@ -51147,6 +50361,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &2104141395
 GameObject:
   m_ObjectHideFlags: 0
@@ -56037,6 +55252,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1 &2099929449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7810523356246160544, guid: 5b867398112423d498e0e751feff052d,
@@ -56234,6 +55451,7 @@ Transform:
   m_Father: {fileID: 858323156}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &2118860306
 GameObject:
   m_ObjectHideFlags: 0
@@ -56373,6 +55591,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.362593, y: 0.29257047, z: 0.6140491}
   m_Center: {x: 0.41991794, y: -0.07547524, z: -0.9167046}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!1001 &2128235291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56454,6 +55674,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 252404708}
   m_SourcePrefab: {fileID: 100100000, guid: 8512d52775bf95340b741dfb9552c938, type: 3}
+<<<<<<< HEAD:Assets/Scene/ai_work.unity.orig
 --- !u!1 &2131699063
 GameObject:
   m_ObjectHideFlags: 0
@@ -56901,6 +56122,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6eb1ca86547cbc43b5afea39ac26710, type: 3}
+=======
+>>>>>>> aa0e4e3c (복구시도):Assets/Scene/Carscene.unity
 --- !u!23 &291567613016872944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58335,6 +57558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9052c63b1ba2b4983ebd95fc6c0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickShifter: {fileID: 258759145}
   VehicleControl: {fileID: 110770741}
   currentGear: 0
 --- !u!114 &2566190279490350293
