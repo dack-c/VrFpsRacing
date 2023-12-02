@@ -57,6 +57,11 @@ public class AI : MonoBehaviour
         Vector3 toTarget = waypoints[currentWaypoint].waypoint_pos - transform.position;
         float angle = Vector3.Angle(fwd, toTarget);
         currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*handling;
+
+        if(controller.GetComponent<VehicleControl>().speed<5.0f)
+        {
+            brakeBool = false;
+        }
         if (waypoints[currentWaypoint].befCorner)
         {
             brakeBool = true;
@@ -69,6 +74,8 @@ public class AI : MonoBehaviour
         {
             brakeBool = false;
         }
+
+
         if (waypoints[currentWaypoint].corner)
         {
             accelFloat /= cornerBrake;
