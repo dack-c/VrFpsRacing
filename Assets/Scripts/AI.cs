@@ -10,18 +10,20 @@ public class AI : MonoBehaviour
     public WaypointCtrl waypointCtrl;
     public List<WaypointAttr.waypoint> waypoints;
     public GameObject controller;
+    public AIWeaponCtrl weaponCtrl;
 
     public int currentWaypoint;
     
     public float waypointRange;
     public float currentAngle;
     private float accelFloat;
-    private float steerFloat;
     public float fullAccelRange;
     private bool brakeBool=false;
     private bool shiftBool = false;
     public float handling=1;
     public float cornerBrake = 2;
+    public float safeRange = 3;
+    public bool avoidCol = false;
 
 
 
@@ -55,14 +57,20 @@ public class AI : MonoBehaviour
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         Vector3 toTarget = waypoints[currentWaypoint].waypoint_pos - transform.position;
+
+        if(weaponCtrl.realDist<safeRange&&avoidCol)
+        {
+            toTarget += weaponCtrl.ToTarget*1.2f * -1;
+        }
+
         float angle = Vector3.Angle(fwd, toTarget);
         currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*handling;
 
-        if(controller.GetComponent<VehicleControl>().speed<5.0f)
+        if(controller.GetComponent<VehicleControl>().speed<10.0f)
         {
             brakeBool = false;
         }
-        if (waypoints[currentWaypoint].befCorner)
+        else if (waypoints[currentWaypoint].befCorner)
         {
             brakeBool = true;
         }

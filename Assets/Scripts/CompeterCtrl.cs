@@ -9,15 +9,9 @@ public class CompeterCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Transform t in GetComponentInChildren<Transform>())
+        foreach(Transform t in gameObject.GetComponentInChildren<Transform>())
         {
             location.Add(t);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
