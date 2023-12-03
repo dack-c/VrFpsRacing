@@ -6,95 +6,111 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-
     public WaypointCtrl waypointCtrl;
     public List<WaypointAttr.waypoint> waypoints;
     public GameObject controller;
     public AIWeaponCtrl weaponCtrl;
 
-    public int currentWaypoint;
-    
-    public float waypointRange;
-    public float currentAngle;
-    private float accelFloat;
-    public float fullAccelRange;
-    private bool brakeBool=false;
-    private bool shiftBool = false;
-    public float handling=1;
-    public float cornerBrake = 2;
-    public float safeRange = 3;
-    public bool avoidCol = false;
+    [System.Serializable]
+    public class stat //스테이터스. 지정 불필요
+    {
+        public int currentWaypoint; //현재 추적중인 웨이포인트
+        public float currentAngle; //현재 웨이포인트와 자신의 각도
+        public float accelFloat; //가속치
+        public bool brakeBool = false; //브레이크
+        public bool shiftBool = false; //기어
 
+    }
+    public stat status;
+
+    [System.Serializable]
+    public class setting//세팅. 임의로 조절 가능
+    {
+        public float waypointRange = 13; //다음 웨이포인트로 향하기 위한 설정값
+        public float fullAccelRange = 70; //최대 가속을 위해 웨이포인트가 떨어져 있어야 하는 거리
+        public float handling = 4; //방향전환 가중치
+        public float cornerBrake = 5; //코너 감속
+        public float safeRange = 3; //안전거리
+        public bool avoidCol = false; //안전거리 준수 설정
+    }
+    public setting set;
 
 
     // Start is called before the first frame update
     void Start()
     {
         waypoints = waypointCtrl.waypoints;
-        currentWaypoint = 0;
+        status.currentWaypoint = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float waypointDist = Vector3.Distance(waypoints[currentWaypoint].waypoint_pos, transform.position);
-        if (waypointDist<waypointRange)
+        //다음 웨이포인트 탐색
+        float waypointDist = Vector3.Distance(waypoints[status.currentWaypoint].waypoint_pos, transform.position);
+        if (waypointDist<set.waypointRange)
         {
-            currentWaypoint++;
-            if(currentWaypoint==waypoints.Count) { currentWaypoint = 0; }
+            status.currentWaypoint++;
+            if(status.currentWaypoint==waypoints.Count) { status.currentWaypoint = 0; }
         }
 
-        if (waypointDist < fullAccelRange)
+        //엑셀러레이터 강도 조절
+        if (waypointDist < set.fullAccelRange)
         {
-            accelFloat = waypointDist / fullAccelRange * 1.0f;
+            status.accelFloat = waypointDist / set.fullAccelRange * 1.0f;
         }
         else
         {
-            accelFloat = 1.0f;
+            status.accelFloat = 1.0f;
         }
 
         
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        Vector3 toTarget = waypoints[currentWaypoint].waypoint_pos - transform.position;
+        Vector3 toTarget = waypoints[status.currentWaypoint].waypoint_pos - transform.position;
 
-        if(weaponCtrl.realDist<safeRange&&avoidCol)
+        //상대 자동차와의 간격 조절
+        if(weaponCtrl.status.realDist <set.safeRange&&set.avoidCol)
         {
-            toTarget += weaponCtrl.ToTarget*1.2f * -1;
+            toTarget += weaponCtrl.status.ToTarget *1.2f * -1;
         }
 
+        //핸들링 각도 계산
         float angle = Vector3.Angle(fwd, toTarget);
-        currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*handling;
+        status.currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*set.handling;
 
+        //브레이크 조건
         if(controller.GetComponent<VehicleControl>().speed<10.0f)
         {
-            brakeBool = false;
+            status.brakeBool = false;
         }
-        else if (waypoints[currentWaypoint].befCorner)
+        else if (waypoints[status.currentWaypoint].befCorner)
         {
-            brakeBool = true;
+            status.brakeBool = true;
         }
         else if(angle>=45)
         {
-            brakeBool = true;
+            status.brakeBool = true;
         }
         else
         {
-            brakeBool = false;
+            status.brakeBool = false;
         }
 
-
-        if (waypoints[currentWaypoint].corner)
+        //코너 감속
+        if (waypoints[status.currentWaypoint].corner)
         {
-            accelFloat /= cornerBrake;
+            status.accelFloat /= set.cornerBrake;
         }
 
-        controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(currentAngle, accelFloat,brakeBool,shiftBool);
+        //추진
+        controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(status.currentAngle, status.accelFloat,status.brakeBool,status.shiftBool);
         //controller.GetComponent<VehicleAIControl>().initialSteerFloat = currentAngle;
         //controller.GetComponent<VehicleAIControl>().initialAccelFloat = accelFloat;
         //controller.GetComponent<VehicleAIControl>().initialBrakeBool = brakeBool;
         //controller.GetComponent<VehicleAIControl>().initialShiftBool = shiftBool;
 
+        //디버그
         Debug.DrawRay(transform.position, toTarget,Color.white);
     }
 

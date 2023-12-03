@@ -6,46 +6,67 @@ using static UnityEngine.GraphicsBuffer;
 
 public class AIWeaponCtrl : MonoBehaviour
 {
+
+    
     public Transform ai;
     public RaycastWeapon RW;
-    private Vector3 player_pos;
-    private Vector3 ai_pos;
-    public Vector3 ToTarget;
-    private float angle;
-    public float aimingRange=1.2f;
-    public float fireRange = 1.0f;
-    private float timer = 0;
-    public List<Transform> target;
     public CompeterCtrl comp;
-    public int targetNum=-1;
-    public float realDist;
+
+    [System.Serializable]
+    public class stat
+    {
+        public Vector3 ToTarget;//조준 위치
+        public List<Transform> target;//타겟 목록
+        public float realDist;//타겟과의 거리
+        public int targetNum=-1;//타겟 번호
+    }
+    public stat status;
+
+    [System.Serializable]
+    public class setting
+    {
+        public float aimingRange=1.2f;//조준 시작 거리. 무기 사정거리 * aimingRange
+        public float fireRange = 1.0f;//사격 시작 거리. 무기 사정거리 * fireRange
+    }
+    public setting set;
+
+    private Vector3 ai_pos;
+    
+    private float angle;
+    
+    private float timer = 0;
+    
+    
+    
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        target = comp.location;
+        status.target = comp.location;
     }
 
     // Update is called once per frame
     void Update()
     {
         ai_pos = ai.position;
-        float dist=RW.MaxRange*aimingRange;
+        float dist=RW.MaxRange*set.aimingRange;
 
-        for(int i=0; i<target.Count; i++)
+        //타겟 선정
+        for(int i=0; i<status.target.Count; i++)
         {
-            Vector3 instTarget = target[i].position - ai.position;
+            Vector3 instTarget = status.target[i].position - ai.position;
             float curDist = instTarget.magnitude;
-            if(targetNum==-1)
+            if(status.targetNum==-1)
             {
-                targetNum = i;
+                status.targetNum = i;
                 dist = curDist;
             }
             else if(dist>curDist&&curDist>2.5f)
             {
                 dist = curDist;
-                targetNum = i;
+                status.targetNum = i;
             }
         }
        
@@ -53,22 +74,23 @@ public class AIWeaponCtrl : MonoBehaviour
         
         timer += Time.deltaTime;
 
+        //타겟 조준
         if(timer>=1)
         {
-            ToTarget = target[targetNum].position - ai_pos;
-            ToTarget.y += 0.5f;
-            realDist = ToTarget.magnitude;
+            status.ToTarget = status.target[status.targetNum].position - ai_pos;
+            status.ToTarget.y += 0.5f;
+            status.realDist = status.ToTarget.magnitude;
             Vector3 random = new Vector3(Random.Range(0.0f,1.0f)-0.5f, Random.Range(0.0f,1.0f)-0.5f,Random.Range(0.0f,1.0f)-0.5f);
-            ToTarget += random;
-            
+            status.ToTarget += random;
+            if (dist<RW.MaxRange*set.aimingRange)
+            {
+                ai.GetComponent<Transform>().rotation = Quaternion.LookRotation(status.ToTarget);
+            }    
         }
-        Debug.DrawRay(transform.position, ToTarget, Color.yellow);
+        Debug.DrawRay(transform.position, status.ToTarget, Color.yellow);
         
-        if (dist<RW.MaxRange*aimingRange)
-        {
-            ai.GetComponent<Transform>().rotation = Quaternion.LookRotation(ToTarget);
-        }
-        if(dist<=RW.MaxRange*fireRange)
+        //사격
+        if(dist<=RW.MaxRange*set.fireRange)
         {
             
             if (timer >= 1)
