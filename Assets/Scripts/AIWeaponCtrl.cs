@@ -27,6 +27,7 @@ public class AIWeaponCtrl : MonoBehaviour
     {
         public float aimingRange=1.2f;//조준 시작 거리. 무기 사정거리 * aimingRange
         public float fireRange = 1.0f;//사격 시작 거리. 무기 사정거리 * fireRange
+        public float aimIssue = 2.0f; //사격시 조준 오차범위
     }
     public setting set;
 
@@ -80,7 +81,7 @@ public class AIWeaponCtrl : MonoBehaviour
             status.ToTarget = status.target[status.targetNum].position - ai_pos;
             status.ToTarget.y += 0.5f;
             status.realDist = status.ToTarget.magnitude;
-            Vector3 random = new Vector3(Random.Range(0.0f,1.0f)-0.5f, Random.Range(0.0f,1.0f)-0.5f,Random.Range(0.0f,1.0f)-0.5f);
+            Vector3 random = new Vector3(Random.Range(0.0f,set.aimIssue)-set.aimIssue/2, Random.Range(0.0f,set.aimIssue)-set.aimIssue/2,Random.Range(0.0f, set.aimIssue) - set.aimIssue / 2);
             status.ToTarget += random;
             if (dist<RW.MaxRange*set.aimingRange)
             {
@@ -93,11 +94,12 @@ public class AIWeaponCtrl : MonoBehaviour
         if(dist<=RW.MaxRange*set.fireRange)
         {
             
-            if (timer >= 1)
+            if (timer >= 1&&comp.StartSign)
             {
                 
                 timer = 0;
                 RW.Shoot();
+                Debug.Log("Shoot");
             }
         }
         

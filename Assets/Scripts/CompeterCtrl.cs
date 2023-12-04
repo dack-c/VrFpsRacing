@@ -6,6 +6,8 @@ public class CompeterCtrl : MonoBehaviour
 {
 
     public List<Transform> location;
+    public bool StartSign = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,5 +15,15 @@ public class CompeterCtrl : MonoBehaviour
         {
             location.Add(t);
         }
+    }
+
+    public void startOff()
+    {
+        StartSign = true;
+    }
+
+    public void checkerFlag()
+    {
+        StartSign = false;
     }
 }

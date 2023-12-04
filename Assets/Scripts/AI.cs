@@ -10,6 +10,7 @@ public class AI : MonoBehaviour
     public List<WaypointAttr.waypoint> waypoints;
     public GameObject controller;
     public AIWeaponCtrl weaponCtrl;
+    public CompeterCtrl competerCtrl;
 
     [System.Serializable]
     public class stat //스테이터스. 지정 불필요
@@ -19,7 +20,6 @@ public class AI : MonoBehaviour
         public float accelFloat; //가속치
         public bool brakeBool = false; //브레이크
         public bool shiftBool = false; //기어
-
     }
     public stat status;
 
@@ -80,7 +80,11 @@ public class AI : MonoBehaviour
         status.currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*set.handling;
 
         //브레이크 조건
-        if(controller.GetComponent<VehicleControl>().speed<10.0f)
+        if(!competerCtrl.StartSign)
+        {
+            status.brakeBool = true;
+        }
+        else if(controller.GetComponent<VehicleControl>().speed<10.0f)
         {
             status.brakeBool = false;
         }
@@ -113,5 +117,7 @@ public class AI : MonoBehaviour
         //디버그
         Debug.DrawRay(transform.position, toTarget,Color.white);
     }
+
+   
 
 }
