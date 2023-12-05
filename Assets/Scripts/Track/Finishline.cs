@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Finishline : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out LapController Car))
+        if (other.TryGetComponent(out LapController controller))
         {
-            Car.ProcessFinishline();
+            controller.ProcessFinishline();
         }
     }
 }

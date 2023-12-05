@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class LapController : MonoBehaviour
 {
-    public int laps = 1;
-    public int trackpointIndex = -1;
-    public LapValue lapValue;
+    public bool isPlayer = false;
+    public int currentLaps = 1;
+    public int currentTrackpointIndex = 0;
+
     public bool isStarted = false;
     public bool isFinished = false;
-    public float lapTime = 0.0f;
-    public float finishLapTime;
+
+    public LapValue lapValue;
+
+    public float currentLapTime = 0.0f;
+    public List<float> finishLapTime = new List<float>();
 
     public Transform Transform;
-    public Track CurrentTrack;
-    
+
+    private void Awake()
+    {
+        Transform = GetComponent<Transform>();
+        for (int i = 0; i < GameManager.I.CurrentTrack.finishLaps; i++)
+            finishLapTime.Add(0);
+    }
+
     public void UpdateLapValue()
     {
-        if (isStarted)
+        if (isStarted && !isFinished)
         {
-            lapTime += Time.deltaTime;
-            var passedTrackpoint = CurrentTrack.trackpoints[trackpointIndex].transform.position;
+            currentLapTime += Time.deltaTime;
+            var passedTrackpoint = GameManager.I.CurrentTrack.trackpoints[currentTrackpointIndex].transform.position;
             lapValue = new LapValue
             {
-                lap = laps,
-                trackpointIndex = trackpointIndex,
+                lap = currentLaps,
+                trackpointIndex = currentTrackpointIndex,
                 trackpointDistance = Vector3.Distance(Transform.position, passedTrackpoint)
             };
         }
@@ -32,39 +42,28 @@ public class LapController : MonoBehaviour
 
     public void ProcessTrackpoint(Trackpoint trackpoint)
     {
-        if (trackpointIndex == trackpoint.index - 1 || trackpointIndex == trackpoint.index + 1)
-            trackpointIndex = trackpoint.index;
+        if (!isStarted) return;
+        if (currentTrackpointIndex == trackpoint.index - 1 || currentTrackpointIndex == trackpoint.index + 1)
+        {
+            Debug.Log($"{this} has collided with trackpoint{trackpoint.index}");
+            currentTrackpointIndex = trackpoint.index;
+        }
     }
 
     public void ProcessFinishline()
     {
-        if (trackpointIndex == CurrentTrack.trackpoints.Length - 1)
+        if (!isStarted) return;
+        if (currentTrackpointIndex == GameManager.I.CurrentTrack.trackpoints.Length - 1)
         {
-            laps++;
-            if (laps > CurrentTrack.finishLaps && !isFinished)
+            finishLapTime[currentLaps - 1] = currentLapTime;
+            currentLaps++;
+            Debug.Log($"Lap: {currentLaps}");
+            if (currentLaps > GameManager.I.CurrentTrack.finishLaps && !isFinished)
             {
+                Debug.Log($"");
                 isFinished = true;
-                finishLapTime = lapTime;
             }
-        }
-    }
-
-    public struct LapValue
-    {
-        public int lap;
-        public int trackpointIndex;
-        public float trackpointDistance;
-
-        public int CompareTo(LapValue other)
-        {
-            // 1 when this is ahead of other, -1 when this is behind other
-            if (lap != other.lap)
-                return lap > other.lap ? 1 : -1;
-
-            if (trackpointIndex == other.trackpointIndex)
-                return trackpointDistance > other.trackpointDistance ? 1 : -1;
-
-            return trackpointIndex > other.trackpointIndex ? 1 : -1;
+            currentTrackpointIndex = -1;
         }
     }
 }

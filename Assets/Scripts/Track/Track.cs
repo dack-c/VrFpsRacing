@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Track : MonoBehaviour
@@ -15,6 +13,7 @@ public class Track : MonoBehaviour
 
     private void InitTrackpoints()
     {
+        Debug.Log($"initialized Trackpoints");
         for (int i = 0; i < trackpoints.Length; i++)
         {
             trackpoints[i].index = i;
