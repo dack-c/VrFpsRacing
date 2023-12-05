@@ -11,5 +11,8 @@ public class RestartGame : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
-    
+    public void OnClickRetryGame()
+    {
+        SceneManager.LoadScene("Carscene");
+    }
 }
