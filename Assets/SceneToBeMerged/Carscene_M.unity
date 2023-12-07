@@ -19305,55 +19305,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1961889340}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1987296927 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2251636036569019247}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1987296941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987296927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208a31a7fd0a8c64ab088c8f60d771fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabbable: {fileID: 0}
-  onBeingGrabbed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2099929449}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onBeingReleased:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2099929449}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &2006912776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 424970, guid: ac375dc36289de94181575d51096d152,
@@ -19604,12 +19555,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &2099929449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7810523356246160544, guid: 5b867398112423d498e0e751feff052d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2251636036569019247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108849049 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 119322, guid: ac375dc36289de94181575d51096d152,
@@ -21065,80 +21010,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 784984081818805328, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: Active
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: Damage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: FiringMethod
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: BulletInChamber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: ValidLayers.m_Bits
-      value: 1283
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: AlwaysFireProjectile
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 113790261}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VehicleDamageCustom, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
         type: 3}
       propertyPath: m_Name
       value: Custom Pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3750332179956421739, guid: 5b867398112423d498e0e751feff052d,
         type: 3}
@@ -21195,19 +21070,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -274.11
       objectReference: {fileID: 0}
-    - target: {fileID: 7810523356246160544, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1987296941}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b867398112423d498e0e751feff052d, type: 3}
 --- !u!1 &2402913102538796549
 GameObject:

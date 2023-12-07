@@ -18,7 +18,7 @@ public class LapController : MonoBehaviour
 
     public Transform Transform;
 
-    private void Awake()
+    private void Start()
     {
         Transform = GetComponent<Transform>();
         for (int i = 0; i < GameManager.I.CurrentTrack.finishLaps; i++)

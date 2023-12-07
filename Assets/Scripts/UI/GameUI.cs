@@ -1,3 +1,4 @@
+using BNG;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class GameUI : MonoBehaviour
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
+
+    public Damageable playerDamageable;
 
     private static List<LapController> playerLaps = new List<LapController>();
 
@@ -74,6 +77,6 @@ public class GameUI : MonoBehaviour
 
     private void UpdateHP()
     {
-        hpText.text = $"100"; // Write down the player's HP here
+        hpText.text = $"{(int)(playerDamageable.Health)}"; // Write down the player's HP here
     }
 }
