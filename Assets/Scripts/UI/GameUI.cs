@@ -22,6 +22,7 @@ public class GameUI : MonoBehaviour
 
     private void InitGameUI()
     {
+        Player = GameManager.I.Player;
         LapController = Player.GetComponent<LapController>();
         playerCountText.text = $"{GameManager.I.Players.Length}";
         for (int i = 0; i < GameManager.I.Players.Length; i++)
