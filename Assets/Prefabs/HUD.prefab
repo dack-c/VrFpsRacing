@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &852677496281104486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   raceTimeText: {fileID: 2212006238137942627}
   finishTimeText: {fileID: 7090391490122256626}
   hpText: {fileID: 7713239975391677373}
+  playerDamageable: {fileID: 0}
 --- !u!1 &8425422794863772745
 GameObject:
   m_ObjectHideFlags: 0

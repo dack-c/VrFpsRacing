@@ -62,7 +62,7 @@ public class VehicleDamageCustom : MonoBehaviour
             carExitScript.ExitCarIfInTheCar();
         }
         Instantiate(DestroyEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void OnCollisionEnter(Collision collision)
