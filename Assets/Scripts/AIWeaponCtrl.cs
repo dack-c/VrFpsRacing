@@ -99,7 +99,7 @@ public class AIWeaponCtrl : MonoBehaviour
                 
                 timer = 0;
                 RW.Shoot();
-                Debug.Log("Shoot");
+                //Debug.Log("Shoot");
             }
         }
         

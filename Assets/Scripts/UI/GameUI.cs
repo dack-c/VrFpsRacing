@@ -1,3 +1,4 @@
+using BNG;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class GameUI : MonoBehaviour
     public Text finishTimeText;
     public Text hpText;
 
+    public Damageable playerDamageable;
+
     private static List<LapController> playerLaps = new List<LapController>();
 
     void Start()
@@ -22,6 +25,7 @@ public class GameUI : MonoBehaviour
 
     private void InitGameUI()
     {
+        Player = GameManager.I.Player;
         LapController = Player.GetComponent<LapController>();
         playerCountText.text = $"{GameManager.I.Players.Length}";
         for (int i = 0; i < GameManager.I.Players.Length; i++)
@@ -74,6 +78,6 @@ public class GameUI : MonoBehaviour
 
     private void UpdateHP()
     {
-        hpText.text = $"100"; // Write down the player's HP here
+        hpText.text = $"{(int)(playerDamageable.Health)}"; // Write down the player's HP here
     }
 }

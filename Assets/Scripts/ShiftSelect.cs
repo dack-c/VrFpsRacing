@@ -17,9 +17,13 @@ public class ShiftSelect : MonoBehaviour
     public void Automatic()
     {
         // start LapController
-        GameManager.I.Player.GetComponent<LapController>().isStarted = true;
-        for (int i = 0; i < GameManager.I.Players.Length; i++)
-            GameManager.I.Players[i].isStarted = true;
+        if(GameManager.I != null)
+        {
+            GameManager.I.Player.GetComponent<LapController>().isStarted = true;
+            for (int i = 0; i < GameManager.I.Players.Length; i++)
+                GameManager.I.Players[i].isStarted = true;
+            GameManager.I.CompeterCtrl.StartSign = true;
+        }
 
         currentGear = VehicleControl.GetComponent<VehicleControl>().currentGear;
         VehicleControl.GetComponent<VehicleControl>().NeutralGear = false;
