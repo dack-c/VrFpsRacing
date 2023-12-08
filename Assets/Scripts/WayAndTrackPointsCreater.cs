@@ -21,6 +21,11 @@ public class WayAndTrackPointsCreater : MonoBehaviour
     private List<Vector3> rightEdgeForWaypoints = new List<Vector3>();
     private List<Transform> trackpoints = new List<Transform>();
 
+    public List<int> waypointAttrList = new List<int>();
+    private int th = 1;
+    public List<GameObject> waypointsList = new List<GameObject>();
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,7 +48,14 @@ public class WayAndTrackPointsCreater : MonoBehaviour
             waypoints.Add(waypointObj.transform);
             rightEdgeForWaypoints.Add(colliderVertices[i]);
             waypointObj.transform.parent = wayPointParent.transform;
+            if (waypointAttrList.Contains(th))
+            {
+                waypointObj.GetComponent<WaypointAttr>().ways.befCorner = true;
+                waypointsList.Add(waypointObj);
+            }
+            th++;
         }
+
 
         for(int i = 0; i < waypoints.Count-trackPointInterval; i += trackPointInterval) //waypoint위치에 trackpoint생성
         {
