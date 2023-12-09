@@ -11,12 +11,12 @@ public class AIWeaponCtrl : MonoBehaviour
     public Transform ai;
     public RaycastWeapon RW;
     public CompeterCtrl comp;
+    public AI aiC;
 
     [System.Serializable]
     public class stat
     {
         public Vector3 ToTarget;//조준 위치
-        public List<Transform> target;//타겟 목록
         public float realDist;//타겟과의 거리
         public int targetNum=-1;//타겟 번호
     }
@@ -45,7 +45,6 @@ public class AIWeaponCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        status.target = comp.location;
     }
 
     // Update is called once per frame
@@ -53,23 +52,6 @@ public class AIWeaponCtrl : MonoBehaviour
     {
         ai_pos = ai.position;
         float dist=RW.MaxRange*set.aimingRange;
-
-        //타겟 선정
-        for(int i=0; i<status.target.Count; i++)
-        {
-            Vector3 instTarget = status.target[i].position - ai.position;
-            float curDist = instTarget.magnitude;
-            if(status.targetNum==-1)
-            {
-                status.targetNum = i;
-                dist = curDist;
-            }
-            else if(dist>curDist&&curDist>2.5f)
-            {
-                dist = curDist;
-                status.targetNum = i;
-            }
-        }
        
         
         
@@ -78,7 +60,7 @@ public class AIWeaponCtrl : MonoBehaviour
         //타겟 조준
         if(timer>=1)
         {
-            status.ToTarget = status.target[status.targetNum].position - ai_pos;
+            status.ToTarget = aiC.status.targets[aiC.status.targetNum].position - ai_pos;
             status.ToTarget.y += 0.5f;
             status.realDist = status.ToTarget.magnitude;
             Vector3 random = new Vector3(Random.Range(0.0f,set.aimIssue)-set.aimIssue/2, Random.Range(0.0f,set.aimIssue)-set.aimIssue/2,Random.Range(0.0f, set.aimIssue) - set.aimIssue / 2);

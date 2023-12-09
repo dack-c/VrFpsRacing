@@ -9,12 +9,20 @@ public class CompeterCtrl : MonoBehaviour
     public bool StartSign = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach(Transform t in gameObject.GetComponentInChildren<Transform>())
         {
-            location.Add(t);
+            if (t.gameObject.activeSelf)
+            {
+                location.Add(t);
+            }
         }
+    }
+
+    private void Update()
+    {
+        checkPlayers();
     }
 
     public void startOff()
@@ -25,5 +33,16 @@ public class CompeterCtrl : MonoBehaviour
     public void checkerFlag()
     {
         StartSign = false;
+    }
+
+    public void checkPlayers()
+    {
+        foreach(Transform t in location)
+        {
+            if(!t.gameObject.activeSelf)
+            {
+                location.Remove(t);
+            }
+        }
     }
 }
