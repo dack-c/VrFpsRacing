@@ -51,7 +51,6 @@ public class AIWeaponCtrl : MonoBehaviour
     void Update()
     {
         ai_pos = ai.position;
-        float dist=RW.MaxRange*set.aimingRange;
        
         
         
@@ -65,17 +64,17 @@ public class AIWeaponCtrl : MonoBehaviour
             status.realDist = status.ToTarget.magnitude;
             Vector3 random = new Vector3(Random.Range(0.0f,set.aimIssue)-set.aimIssue/2, Random.Range(0.0f,set.aimIssue)-set.aimIssue/2,Random.Range(0.0f, set.aimIssue) - set.aimIssue / 2);
             status.ToTarget += random;
-            if (dist<RW.MaxRange*set.aimingRange)
+            if (aiC.status.realDist<RW.MaxRange*set.aimingRange)
             {
                 ai.GetComponent<Transform>().rotation = Quaternion.LookRotation(status.ToTarget);
             }    
         }
         Debug.DrawRay(transform.position, status.ToTarget, Color.yellow);
-        
+
         //»ç°Ý
-        if(dist<=RW.MaxRange*set.fireRange)
+        
+        if(aiC.status.realDist <= RW.MaxRange*set.fireRange)
         {
-            
             if (timer >= 1&&comp.StartSign)
             {
                 
