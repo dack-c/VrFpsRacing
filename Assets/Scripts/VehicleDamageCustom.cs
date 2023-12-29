@@ -57,10 +57,12 @@ public class VehicleDamageCustom : MonoBehaviour
 
     public void DestroyVehicle()
     {
-        if(carExitScript)
+        if(carExitScript) //파괴된 차량이 플레이어면
         {
             carExitScript.ExitCarIfInTheCar();
+            GameManager.I.CurrentTrack.EndGame(Track.Result.Retire); //게임종료
         }
+        GameManager.I.CurrentTrack.CheckDestroyedEnemyNum(); //폭파된 차량 개수 검사 및 모든 차 폭파 시 게임종료 
         Instantiate(DestroyEffect, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
@@ -72,20 +74,21 @@ public class VehicleDamageCustom : MonoBehaviour
 
         Vector3 colRelVel = collision.relativeVelocity;
         colRelVel.y *= YforceDamp;
+        //colRelVel.y = 0; //낙하 데미지 무시
 
 
         if (collision.contacts.Length > 0 && collision.gameObject.layer != LayerMask.NameToLayer("Weapon"))
         {
 
-            colPointToMe = transform.position - collision.contacts[0].point; //�浹�������� ������ �߾ӱ����� ����
-            colStrength = colRelVel.magnitude * Vector3.Dot(collision.contacts[0].normal, colPointToMe.normalized); //���� ���� �߰�
+            colPointToMe = transform.position - collision.contacts[0].point; //충돌지점에서 차량의 중앙까지의 벡터
+            colStrength = colRelVel.magnitude * Vector3.Dot(collision.contacts[0].normal, colPointToMe.normalized); //힘의 크기를 충돌방향에 맞춰 줄이기?
 
             
-            if(Time.time > nextColDamageTime && colRelVel.magnitude > colDamageThreshold)
+            if(Time.time > nextColDamageTime && colStrength > colDamageThreshold)
             {
-                Debug.Log("��� �浹 �ӵ�(Unit per Sec): " + colRelVel.magnitude);
+                Debug.Log("상대 충돌 속도(Unit per Sec): " + colStrength);
                 //OnDamage(colRelVel.magnitude);
-                damageable.DealDamage(colRelVel.magnitude);
+                damageable.DealDamage(colStrength);
                 nextColDamageTime = Time.time + colDamageDelay;
             }
 
