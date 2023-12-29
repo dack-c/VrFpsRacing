@@ -12,6 +12,7 @@ public class AIWeaponCtrl : MonoBehaviour
     public RaycastWeapon RW;
     public CompeterCtrl comp;
     public AI aiC;
+    public CheckIfUs CIU;
 
     [System.Serializable]
     public class stat
@@ -77,9 +78,18 @@ public class AIWeaponCtrl : MonoBehaviour
         {
             if (timer >= 1&&comp.StartSign)
             {
-                
-                timer = 0;
-                RW.Shoot();
+                bool isParent = false;
+                isParent = CIU.isAimingSelf();
+
+                if (!isParent)
+                {
+                    RW.Shoot();
+                    timer = 0;
+                }
+                else
+                {
+                    //Debug.Log(transform.parent.name + "이 자신을 겨눴음");
+                }
                 //Debug.Log("Shoot");
             }
         }

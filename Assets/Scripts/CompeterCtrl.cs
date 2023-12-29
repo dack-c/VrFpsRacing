@@ -22,7 +22,6 @@ public class CompeterCtrl : MonoBehaviour
 
     private void Update()
     {
-        checkPlayers();
     }
 
     public void startOff()
@@ -33,16 +32,5 @@ public class CompeterCtrl : MonoBehaviour
     public void checkerFlag()
     {
         StartSign = false;
-    }
-
-    public void checkPlayers()
-    {
-        foreach(Transform t in location)
-        {
-            if(!t.gameObject.activeSelf)
-            {
-                location.Remove(t);
-            }
-        }
     }
 }

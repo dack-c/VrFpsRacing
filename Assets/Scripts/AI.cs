@@ -138,12 +138,12 @@ public class AI : MonoBehaviour
             Vector3 instTarget = status.targets[i].position - controller.transform.position;
             float curDist = instTarget.magnitude;
             
-            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name))
+            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 status.targetNum = i;
                 dist = curDist;
             }
-            else if (dist > curDist && (status.targets[i].name!=gameObject.name))
+            else if (dist > curDist && (status.targets[i].name!=gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 dist = curDist;
                 status.targetNum = i;
