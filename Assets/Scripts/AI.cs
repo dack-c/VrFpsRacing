@@ -94,7 +94,7 @@ public class AI : MonoBehaviour
         {
             status.brakeBool = true;
         }
-        else if(controller.GetComponent<VehicleControl>().speed<15.0f)
+        else if(controller.GetComponent<VehicleControl>().speed<30.0f)
         {
             status.brakeBool = false;
         }
@@ -106,16 +106,20 @@ public class AI : MonoBehaviour
         {
             status.brakeBool = true;
         }
+        else if (controller.GetComponent<VehicleControl>().speed >= 60.0f && waypoints[status.currentWaypoint].corner)
+        {
+            status.brakeBool = true;
+        }
         else
         {
             status.brakeBool = false;
         }
-
+        status.accelFloat /= 5;
         //코너 감속
-        //if (waypoints[status.currentWaypoint].corner)
-        //{
+        if (waypoints[status.currentWaypoint].corner)
+        {
             status.accelFloat /= set.cornerBrake;
-        //}
+        }
 
         //추진
         controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(status.currentAngle, status.accelFloat,status.brakeBool,status.shiftBool);
