@@ -80,7 +80,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 waypoints.Add(waypointObj.transform);
                 rightEdgeForWaypoints.Add(colliderVertices[i]);
                 waypointObj.transform.parent = wayPointParent.transform;
-                if (waypointAttrList.Contains(th)&&manual)
+                if (waypointAttrList.Contains(th)&&manual)//수동 코너 지정
                 {
                     waypointObj.GetComponent<WaypointAttr>().ways.befCorner = true;
                     waypointsList.Add(waypointObj);
@@ -98,9 +98,10 @@ public class WayAndTrackPointsCreater : MonoBehaviour
             distance = 0;
         }
 
+        //자동 코너 지정
         if (!manual)
         {
-            
+            //웨이포인트 2개 사이의 코너 감지
             for (int i = 0; i < waypoints.Count; i++)
             {
                 Vector3 frontPoint;
@@ -132,7 +133,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 }
             }
             
-
+            //웨이포인트 3개의 각도 감지
             for(int i=0;i<waypoints.Count-1;i++)
             {
                 int frontN = i;

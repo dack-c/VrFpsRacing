@@ -131,7 +131,7 @@ public class AI : MonoBehaviour
         //디버그
         Debug.DrawRay(transform.position, toTarget,Color.white);
 
-
+        //사격 목표 탐색
         float dist = 0;
         if(status.targetNum!=-1)
         {

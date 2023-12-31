@@ -79,7 +79,7 @@ public class AIWeaponCtrl : MonoBehaviour
             if (timer >= 1&&comp.StartSign)
             {
                 bool isParent = false;
-                isParent = CIU.isAimingSelf();
+                isParent = CIU.isAimingSelf();//자기 자신을 조준 중인지 확인
 
                 if (!isParent)
                 {
