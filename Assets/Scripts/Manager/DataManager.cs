@@ -38,30 +38,6 @@ public class DataManager : MonoBehaviour
     {
         m_filePath = Application.persistentDataPath + @"\Records.dat"; //기록데이터가 저장될 파일 경로
         List<Record> records = new List<Record>();
-        /*// --------- 데이터 저장 ------------
-        //데이터 저장
-        Record testRecord = new Record();
-        bool isSuccess = OnSave(m_filePath, testRecord);
-
-        //저장완료
-        if (isSuccess)
-        {
-            Debug.Log("저장 완료");
-        }
-        else
-        {
-            Debug.Log("저장 오류");
-        }
-
-        // --------- 데이터 로드 -------------
-        List<Record> _loadData = OnLoad();
-        if (_loadData != null)
-        {
-            foreach (var item in _loadData)
-            {
-                Debug.Log(item.result);
-            }
-        }*/
     }
 
     public bool LoadRecordData() //Record데이터를 파일로부터 불러옴

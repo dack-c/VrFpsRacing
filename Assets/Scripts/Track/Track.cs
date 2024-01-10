@@ -53,7 +53,7 @@ public class Track : MonoBehaviour
         destroyedEnemyNum++;
         if(destroyedEnemyNum == GameManager.I.Players.Length - 1) //모든 적 차량 파괴 시
         {
-            StartCoroutine(EndGame(Result.Allkill));
+            EndGame(Result.Allkill);
         }
     }
 
@@ -62,7 +62,12 @@ public class Track : MonoBehaviour
         finishedCarNum++;
     }
 
-    public IEnumerator EndGame(Result result) //결과창 뜨고 약 3초후 메인화면으로 데이터와 함께 넘겨주기
+    public void EndGame(Result result)
+    {
+        StartCoroutine(EndGameCoroutine(result));
+    }
+
+    public IEnumerator EndGameCoroutine(Result result) //결과창 뜨고 약 3초후 메인화면으로 데이터와 함께 넘겨주기
     {
         float uiChangeDelay = 3.0f;
         resultUIText.enabled = true; //결과창 ui 텍스트 활성화

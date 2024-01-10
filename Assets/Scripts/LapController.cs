@@ -66,7 +66,7 @@ public class LapController : MonoBehaviour
                 GameManager.I.CurrentTrack.UpdateFinishedCarNum(); //완주한 차량 개수들 업데이트
                 if (isPlayer)//들어온게 플레이어면 게임종료
                 {
-                    StartCoroutine(GameManager.I.CurrentTrack.EndGame(Track.Result.Finish));
+                    GameManager.I.CurrentTrack.EndGame(Track.Result.Finish);
                 }
             }
             currentTrackpointIndex = -1;
