@@ -60,7 +60,7 @@ public class VehicleDamageCustom : MonoBehaviour
         if(carExitScript) //파괴된 차량이 플레이어면
         {
             carExitScript.ExitCarIfInTheCar();
-            GameManager.I.CurrentTrack.EndGame(Track.Result.Retire); //게임종료
+            StartCoroutine(GameManager.I.CurrentTrack.EndGame(Track.Result.Retire));
         }
         GameManager.I.CurrentTrack.CheckDestroyedEnemyNum(); //폭파된 차량 개수 검사 및 모든 차 폭파 시 게임종료 
         Instantiate(DestroyEffect, transform.position, Quaternion.identity);

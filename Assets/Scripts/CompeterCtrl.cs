@@ -37,11 +37,21 @@ public class CompeterCtrl : MonoBehaviour
 
     public void checkPlayers()
     {
-        foreach(Transform t in location)
+        /*foreach(Transform t in location)
         {
             if(!t.gameObject.activeSelf)
             {
                 location.Remove(t);
+            }
+        }*/
+        //위 로직 사용시, foreach문을 돌리고 있는 중에 list안에 있는 요소들이 삭제가 되면 예외 발생.
+        //참고 자료: https://ruen346.tistory.com/109#google_vignette
+
+        for (int i = location.Count - 1; i >= 0; i--)
+        {
+            if (!location[i].gameObject.activeSelf)
+            {
+                location.RemoveAt(i);
             }
         }
     }
