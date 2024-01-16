@@ -62,13 +62,13 @@ public class GameUI : MonoBehaviour
     private void UpdateRaceTime()
     {
         var lapTimes = LapController.currentLapTime;
-        SetTimeText(finishTimeText, lapTimes);
+        SetTimeText(raceTimeText, lapTimes);
     }
 
     private void SetFinishTime()
     {
         var lapTimes = LapController.finishLapTime[0];
-        SetTimeText(raceTimeText, lapTimes);
+        SetTimeText(finishTimeText, lapTimes);
     }
 
     public void SetTimeText(Text text, float time)
