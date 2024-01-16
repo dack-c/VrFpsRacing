@@ -22,7 +22,6 @@ public class CompeterCtrl : MonoBehaviour
 
     private void Update()
     {
-        checkPlayers();
     }
 
     public void startOff()
