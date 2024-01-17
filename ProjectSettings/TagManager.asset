@@ -8,6 +8,7 @@ TagManager:
   - Grass
   - Street
   - Finishline
+  - Car
   layers:
   - Default
   - TransparentFX

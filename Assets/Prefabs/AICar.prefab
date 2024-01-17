@@ -71,7 +71,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4488469683623290118
 Transform:
   m_ObjectHideFlags: 0
@@ -9254,6 +9254,7 @@ GameObject:
   - component: {fileID: 8513660060141041612}
   - component: {fileID: 8069556115946988924}
   - component: {fileID: 4087062465628333092}
+  - component: {fileID: 3721296584130951828}
   m_Layer: 1
   m_Name: AICar
   m_TagString: Untagged
@@ -9268,7 +9269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5350968028961521106}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -82.74173, y: -0.084168196, z: 24.861115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9290,7 +9291,7 @@ Transform:
   - {fileID: 5089302036645092601}
   m_Father: {fileID: 0}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &3714945196579907165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9340,7 +9341,7 @@ MonoBehaviour:
   crashSound: {fileID: 16095252454228363}
   DestroyEffect: {fileID: 1121192042590650, guid: 6dcbf57484aabfc4f914aea4c791b442,
     type: 3}
-  carExitScript: {fileID: 1237956713535294879}
+  carExitScript: {fileID: 0}
   damageable: {fileID: 4087062465628333092}
   colDamageDelay: 0.1
   colDamageThreshold: 5
@@ -9359,12 +9360,24 @@ MonoBehaviour:
   waypointCtrl: {fileID: 0}
   waypoints: []
   controller: {fileID: 5350968028961521106}
-  currentWaypoint: 0
-  waypointRange: 10
-  currentAngle: 0
-  fullAccelRange: 50
-  handling: 4
-  cornerBrake: 5
+  competerCtrl: {fileID: 0}
+  status:
+    currentWaypoint: 0
+    currentAngle: 0
+    accelFloat: 0
+    brakeBool: 0
+    shiftBool: 0
+    targets: []
+    targetNum: -1
+    realDist: 0
+    aimingTarget: {x: 0, y: 0, z: 0}
+  set:
+    waypointRange: 13
+    fullAccelRange: 70
+    handling: 4
+    cornerBrake: 5
+    safeRange: 3
+    avoidCol: 0
 --- !u!114 &8513660060141041612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9497,7 +9510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6de38f13d6b1443b2c5a5a20ac08d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 500
   SpawnOnDeath: {fileID: 0}
   ActivateGameObjectsOnDeath: []
   DeactivateGameObjectsOnDeath: []
@@ -9529,6 +9542,30 @@ MonoBehaviour:
   onRespawn:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3721296584130951828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350968028961521106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c4df4d745b25b4a86ec0725d485427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  currentLaps: 1
+  currentTrackpointIndex: 0
+  isStarted: 1
+  isFinished: 0
+  lapValue:
+    lap: 0
+    trackpointIndex: 0
+    trackpointDistance: 0
+  currentLapTime: 0
+  finishLapTime: []
+  Transform: {fileID: 0}
 --- !u!1 &5454652609074213673
 GameObject:
   m_ObjectHideFlags: 0
@@ -10477,7 +10514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4154205531758405734
 Transform:
   m_ObjectHideFlags: 0
@@ -16074,7 +16111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1648154228796301774
 Transform:
   m_ObjectHideFlags: 0
@@ -17848,6 +17885,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
         type: 3}
+      propertyPath: Damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,
+        type: 3}
       propertyPath: FiringMethod
       value: 0
       objectReference: {fileID: 0}
@@ -17944,6 +17986,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4976328228515077488}
+    - targetCorrespondingSourceObject: {fileID: 3016933961377265889, guid: 5b867398112423d498e0e751feff052d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8299899517995365673}
   m_SourcePrefab: {fileID: 100100000, guid: 5b867398112423d498e0e751feff052d, type: 3}
 --- !u!4 &5089302036645092601 stripped
 Transform:
@@ -17971,11 +18017,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ai: {fileID: 5089302036645092601}
   RW: {fileID: 7232088856208321001}
-  aimingRange: 1.2
-  fireRange: 1
-  target: []
   comp: {fileID: 0}
-  targetNum: -1
+  aiC: {fileID: 4765185291350889041}
+  CIU: {fileID: 8299899517995365673}
+  status:
+    ToTarget: {x: 0, y: 0, z: 0}
+    realDist: 0
+    targetNum: -1
+  set:
+    aimingRange: 1.2
+    fireRange: 1
+    aimIssue: 5
+--- !u!114 &8299899517995365673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590247810360668275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf8acdc0d3082e4a88998725894bed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RW: {fileID: 7232088856208321001}
 --- !u!114 &7232088856208321001 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1654655584617128315, guid: 5b867398112423d498e0e751feff052d,

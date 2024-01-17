@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyRoads3Dv3;
+using System.Drawing;
 
 public class WayAndTrackPointsCreater : MonoBehaviour
 {
     private ERRoadNetwork roadNetwork;
 
-    public GameObject waypointPrefab; // ¿şÀÌÆ÷ÀÎÆ®·Î »ç¿ëÇÒ ÇÁ¸®ÆÕ
-    public MeshCollider trackCollider; // Æ®·¢ÀÇ ¸Ş½Ã Äİ¶óÀÌ´õ
-    public GameObject wayPointParent; //¿şÀÌÆ÷ÀÎÆ®ÀÇ ºÎ¸ğ ¿ÀºêÁ§Æ®
+    public GameObject waypointPrefab; // ì›¨ì´í¬ì¸íŠ¸ë¡œ ì‚¬ìš©í•  í”„ë¦¬íŒ¹
+    public MeshCollider trackCollider; // íŠ¸ë™ì˜ ë©”ì‹œ ì½œë¼ì´ë”
+    public GameObject wayPointParent; //ì›¨ì´í¬ì¸íŠ¸ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
     public int wayPointInterval = 8;
 
-    public GameObject trackpointPrefab; // Æ®·ºÆ÷ÀÎÆ®·Î »ç¿ëÇÒ ÇÁ¸®ÆÕ
-    public GameObject trackPointParent; //Æ®·¢Æ÷ÀÎÆ®ÀÇ ºÎ¸ğ ¿ÀºêÁ§Æ®
+    public GameObject trackpointPrefab; // íŠ¸ë ‰í¬ì¸íŠ¸ë¡œ ì‚¬ìš©í•  í”„ë¦¬íŒ¹
+    public GameObject trackPointParent; //íŠ¸ë™í¬ì¸íŠ¸ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
     public GameObject finishLineObj;
     public int trackPointInterval = 1;
 
-    private List<Transform> waypoints = new List<Transform>(); // ¿şÀÌÆ÷ÀÎÆ® ¸®½ºÆ®
+    private List<Transform> waypoints = new List<Transform>(); // ì›¨ì´í¬ì¸íŠ¸ ë¦¬ìŠ¤íŠ¸
     private List<Vector3> rightEdgeForWaypoints = new List<Vector3>();
     private List<Transform> trackpoints = new List<Transform>();
 
@@ -27,25 +28,27 @@ public class WayAndTrackPointsCreater : MonoBehaviour
 
     public bool manual = false;
 
+    public float trackPointCreationAngle = 70f; //ì´ ê°ë„ ì´ìƒìœ¼ë¡œ êº¾ì–´ì§€ëŠ” ì½”ë„ˆë©´ íŠ¸ë™í¬ì¸íŠ¸ ìƒì„±
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        /*EasyRoad ÇÁ·Î¹öÀü¿¡¼­¸¸ »ç¿ë°¡´ÉÇÑ ½ºÅ©¸³Æ®
+        /*EasyRoad í”„ë¡œë²„ì „ì—ì„œë§Œ ì‚¬ìš©ê°€ëŠ¥í•œ ìŠ¤í¬ë¦½íŠ¸
         roadNetwork = new ERRoadNetwork();
         ERRoad erRoad = roadNetwork.GetRoadByName(gameObject.name);
         erRoad.GetMarkerPositions();
         Debug.Log(erRoad.GetMarkerCount());*/
-        if(wayPointInterval % 2 == 1)//È¦¼ö¸é Â¦¼ö·Î ¹Ù²Ù±â
+        if(wayPointInterval % 2 == 1)//í™€ìˆ˜ë©´ ì§ìˆ˜ë¡œ ë°”ê¾¸ê¸°
         {
             wayPointInterval++;
         }
 
-        Vector3[] colliderVertices = trackCollider.sharedMesh.vertices; // ¸Ş½Ã Äİ¶óÀÌ´õÀÇ ¸ğµç ¹öÅØ½º¸¦ °¡Á®¿È
+        Vector3[] colliderVertices = trackCollider.sharedMesh.vertices; // ë©”ì‹œ ì½œë¼ì´ë”ì˜ ëª¨ë“  ë²„í…ìŠ¤ë¥¼ ê°€ì ¸ì˜´
         List<Vector3> centerPoints = new List<Vector3>();
         double distance = 0;
 
-        /*for (int i = 0; i < colliderVertices.Length; i += wayPointInterval)//waypoint »ı¼º
+        /*for (int i = 0; i < colliderVertices.Length; i += wayPointInterval)//waypoint ìƒì„±
         {
             Vector3 centerPoint = (colliderVertices[i] + colliderVertices[i + 1]) / 2.0f;
 
@@ -63,7 +66,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 th++;
         }
         */
-        for (int i = 0; i < colliderVertices.Length; i += 2)//waypoint »ı¼º
+        for (int i = 0; i < colliderVertices.Length; i += 2)//waypoint ìƒì„±
         {
             Vector3 centerPoint = (colliderVertices[i] + colliderVertices[i + 1]) / 2.0f;
             centerPoints.Add(centerPoint);
@@ -80,7 +83,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 waypoints.Add(waypointObj.transform);
                 rightEdgeForWaypoints.Add(colliderVertices[i]);
                 waypointObj.transform.parent = wayPointParent.transform;
-                if (waypointAttrList.Contains(th)&&manual)//¼öµ¿ ÄÚ³Ê ÁöÁ¤
+                if (waypointAttrList.Contains(th)&&manual)//ìˆ˜ë™ ì½”ë„ˆ ì§€ì •
                 {
                     waypointObj.GetComponent<WaypointAttr>().ways.befCorner = true;
                     waypointsList.Add(waypointObj);
@@ -98,10 +101,10 @@ public class WayAndTrackPointsCreater : MonoBehaviour
             distance = 0;
         }
 
-        //ÀÚµ¿ ÄÚ³Ê ÁöÁ¤
+        //ìë™ ì½”ë„ˆ ì§€ì •
         if (!manual)
         {
-            //¿şÀÌÆ÷ÀÎÆ® 2°³ »çÀÌÀÇ ÄÚ³Ê °¨Áö
+            //ì›¨ì´í¬ì¸íŠ¸ 2ê°œ ì‚¬ì´ì˜ ì½”ë„ˆ ê°ì§€
             for (int i = 0; i < waypoints.Count; i++)
             {
                 Vector3 frontPoint;
@@ -133,31 +136,17 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 }
             }
             
-            //¿şÀÌÆ÷ÀÎÆ® 3°³ÀÇ °¢µµ °¨Áö
+            //ì›¨ì´í¬ì¸íŠ¸ 3ê°œì˜ ê°ë„ ê°ì§€
             for(int i=0;i<waypoints.Count-1;i++)
             {
                 int frontN = i;
-                int midN=i+1;
-                int backN = i+2;
+                int midN = i + 1;
                 if (i + 1 >= waypoints.Count)
                 {
-                    midN -=waypoints.Count;
-                }
-                if (i + 2 >= waypoints.Count)
-                {
-                    backN -=waypoints.Count;
+                    midN -= waypoints.Count;
                 }
 
-                Vector3 front = waypoints[frontN].position;
-                Vector3 mid=waypoints[midN].position;
-                Vector3 back=waypoints[backN].position;
-                
-                front.y = 0;
-                mid.y = 0;
-                back.y = 0;
-                Vector3 line1 = mid - front;
-                Vector3 line2 = mid - back;
-                float angle = Vector3.Angle(line1, line2);
+                float angle = CaculateWaypointAngle(i, false);
                 waypoints[midN].GetComponent<WaypointAttr>().ways.angle = angle;
                 if (angle<=126)
                 {
@@ -171,8 +160,33 @@ public class WayAndTrackPointsCreater : MonoBehaviour
             }
         }
 
+        float reverseAngleSum = 0f;
+        for(int i = 0; i < waypoints.Count - 1; i++)
+        {
+            float angle = CaculateWaypointAngle(i, true);
+            float reverseAngle; //êº¾ëŠ” ê°ë„
+            if(angle >= 0) //ê°ë„ê°€ ì–‘ìˆ˜ë¼ë©´
+            {
+                reverseAngle = 180 - angle;
+            }
+            else
+            {
+                reverseAngle = -180 - angle;
+            }
+            reverseAngleSum += reverseAngle;
+            if(Mathf.Abs(reverseAngleSum) >= trackPointCreationAngle)
+            {
+                GameObject trackpointObj = Instantiate(trackpointPrefab, waypoints[i+1].position, Quaternion.identity);
+                trackpointObj.transform.LookAt(rightEdgeForWaypoints[i+1]);
+                trackpointObj.transform.Rotate(0, 90, 0);
+                trackpointObj.transform.Translate(0, 3.5f, 0);
+                trackpoints.Add(trackpointObj.transform);
+                trackpointObj.transform.parent = trackPointParent.transform;
+                reverseAngleSum = 0f;
+            }
+        }
 
-        for (int i = 0; i < waypoints.Count-trackPointInterval; i += trackPointInterval) //waypointÀ§Ä¡¿¡ trackpoint»ı¼º
+        /*for (int i = 0; i < waypoints.Count-trackPointInterval; i += trackPointInterval) //waypointìœ„ì¹˜ì— trackpointìƒì„±
         {
             GameObject trackpointObj = Instantiate(trackpointPrefab, waypoints[i].position, Quaternion.identity);
             trackpointObj.transform.LookAt(rightEdgeForWaypoints[i]);
@@ -180,7 +194,52 @@ public class WayAndTrackPointsCreater : MonoBehaviour
             trackpointObj.transform.Translate(0, 3.5f, 0);
             trackpoints.Add(trackpointObj.transform);
             trackpointObj.transform.parent = trackPointParent.transform;
+        }*/
+    }
+
+    private float CaculateWaypointAngle(int frontIndex, bool isReturnSigned)//ì´ indexì˜ ë‹¤ìŒ indexì™€, ê·¸ ë‹¤ìŒ index ì‚¬ì´ì˜ ê°ë„ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
+    {
+        int frontN = frontIndex;
+        int midN = frontIndex + 1;
+        int backN = frontIndex + 2;
+        if (frontIndex + 1 >= waypoints.Count)
+        {
+            midN -= waypoints.Count;
         }
+        if (frontIndex + 2 >= waypoints.Count)
+        {
+            backN -= waypoints.Count;
+        }
+
+        Vector3 front = waypoints[frontN].position;
+        Vector3 mid = waypoints[midN].position;
+        Vector3 back = waypoints[backN].position;
+
+        front.y = 0;
+        mid.y = 0;
+        back.y = 0;
+        Vector3 line1 = mid - front;
+        Vector3 line2 = mid - back;
+
+        float angle;
+        if(isReturnSigned)
+        {
+            angle = Vector3.SignedAngle(line1, line2, line1);
+        }
+        else
+        {
+            angle = Vector3.Angle(line1, line2);
+        }
+        
+
+        return angle;
+    }
+
+    public static float GetAngleSigned(Vector3 vStart, Vector3 vEnd) //ë‘ ë²¡í„° ì‚¬ì´ì˜ ê°ë„: -180~180
+    {
+        Vector3 v = vEnd - vStart;
+
+        return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
     }
 
     // Update is called once per frame
