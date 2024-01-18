@@ -13,6 +13,7 @@ public class GameUI : MonoBehaviour
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
+    public GameObject startCountdownUI;
 
     public Damageable playerDamageable;
 
@@ -42,7 +43,7 @@ public class GameUI : MonoBehaviour
         if (LapController.isStarted) UpdateRaceTime();
         if (LapController.isFinished) SetFinishTime();
     }
-    
+
     private void UpdateRanking()
     {
         SortRanking();
@@ -58,7 +59,7 @@ public class GameUI : MonoBehaviour
 
         playerLaps.Sort((a, b) => a.lapValue.CompareTo(b.lapValue));
     }
-    
+
     private void UpdateRaceTime()
     {
         var lapTimes = LapController.currentLapTime;
@@ -78,6 +79,7 @@ public class GameUI : MonoBehaviour
 
     private void UpdateHP()
     {
-        hpText.text = $"{(int)(playerDamageable.Health)}"; // Write down the player's HP here
+        // Write down the player's HP here
+        hpText.text = $"{(int)(playerDamageable.Health)}";
     }
 }

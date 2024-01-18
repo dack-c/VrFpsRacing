@@ -14370,6 +14370,9 @@ MonoBehaviour:
   - {fileID: 1052677834}
   - {fileID: 808292739}
   finishline: {fileID: 557451537}
+  trackpointParent: {fileID: 1248542033}
+  resultUIText: {fileID: 0}
+  playerLabController: {fileID: 0}
 --- !u!4 &883480075
 Transform:
   m_ObjectHideFlags: 0
@@ -14395,6 +14398,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1280693903}
     m_Modifications:
+    - target: {fileID: 1514455870949414299, guid: 37405713e6f5b2d46b7db3bde46f94ff,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3985662157686877282, guid: 37405713e6f5b2d46b7db3bde46f94ff,
         type: 3}
       propertyPath: m_Pivot.x
@@ -14521,6 +14529,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 922315337}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &922315340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4786525729659620536, guid: 37405713e6f5b2d46b7db3bde46f94ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 922315337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764b151ae7942e346ba1763f6877050e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931768445
 GameObject:
   m_ObjectHideFlags: 0
@@ -18999,6 +19019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4047333649855191169, guid: b3519e81b0a5d0641962885b008a5dbc,
+        type: 3}
+      propertyPath: Hud
+      value: 
+      objectReference: {fileID: 922315340}
     - target: {fileID: 4047333649855191169, guid: b3519e81b0a5d0641962885b008a5dbc,
         type: 3}
       propertyPath: Player

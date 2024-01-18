@@ -37,10 +37,6 @@ public class Track : MonoBehaviour
     {
         Debug.Log($"initialized Trackpoints");
         trackpoints = trackpointParent.transform.GetComponentsInChildren<Trackpoint>();
-        /*for(int i = 0; i < trackpointParent.transform.childCount; i++)
-        {
-            trackpoints.Add(trackpointParent.transform.GetChild(i).GetComponent<Trackpoint>());
-        }*/
 
         for (int i = 0; i < trackpoints.Length; i++)
         {

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public LapController[] Players;
     public Track CurrentTrack;
-    public CompeterCtrl CompeterCtrl; //aiÂ÷·®¿¡ Ãâ¹ß½ÅÈ£¸¦ ÁÖ±â À§ÇØ(startSign = true)
+    public CompeterCtrl CompeterCtrl; //aiì°¨ëŸ‰ì— ì¶œë°œì‹ í˜¸ë¥¼ ì£¼ê¸° ìœ„í•´(startSign = true)
+    public GameUI Hud;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,10 +23,4 @@ public class GameManager : MonoBehaviour
         I = this;
         DontDestroyOnLoad(gameObject);
     } 
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
