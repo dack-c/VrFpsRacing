@@ -174,7 +174,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 reverseAngle = -180 - angle;
             }
             reverseAngleSum += reverseAngle;
-            if(Mathf.Abs(reverseAngleSum) >= trackPointCreationAngle)
+            if(Mathf.Abs(reverseAngleSum) >= trackPointCreationAngle)//트랙포인트 생성
             {
                 GameObject trackpointObj = Instantiate(trackpointPrefab, waypoints[i+1].position, Quaternion.identity);
                 trackpointObj.transform.LookAt(rightEdgeForWaypoints[i+1]);
