@@ -19,8 +19,11 @@ public class LapController : MonoBehaviour
 
     public Transform Transform;
 
+    private string carName; //해당 labController가 속한 차 오브젝트의 이름
+
     private void Start()
     {
+        carName = transform.parent.parent.parent.gameObject.name;
         Transform = GetComponent<Transform>();
         for (int i = 0; i < GameManager.I.CurrentTrack.finishLaps; i++)
             finishLapTime.Add(0);
@@ -46,7 +49,7 @@ public class LapController : MonoBehaviour
         if (!isStarted) return;
         if (currentTrackpointIndex == trackpoint.index - 1 || currentTrackpointIndex == trackpoint.index + 1)
         {
-            Debug.Log($"{this} has collided with trackpoint{trackpoint.index}");
+            Debug.Log($"{carName} has collided with trackpoint{trackpoint.index}");
             currentTrackpointIndex = trackpoint.index;
         }
     }

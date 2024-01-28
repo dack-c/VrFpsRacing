@@ -12,6 +12,7 @@ public class AIWeaponCtrl : MonoBehaviour
     public RaycastWeapon RW;
     public CompeterCtrl comp;
     public AI aiC;
+    public CheckIfUs CIU;
 
     [System.Serializable]
     public class stat
@@ -27,7 +28,7 @@ public class AIWeaponCtrl : MonoBehaviour
     {
         public float aimingRange=1.2f;//조준 시작 거리. 무기 사정거리 * aimingRange
         public float fireRange = 1.0f;//사격 시작 거리. 무기 사정거리 * fireRange
-        public float aimIssue = 2.0f; //사격시 조준 오차범위
+        public float aimIssue = 5.0f; //사격시 조준 오차범위
     }
     public setting set;
 
@@ -51,7 +52,7 @@ public class AIWeaponCtrl : MonoBehaviour
     void Update()
     {
         ai_pos = ai.position;
-       
+        
         
         
         timer += Time.deltaTime;
@@ -62,6 +63,7 @@ public class AIWeaponCtrl : MonoBehaviour
             status.ToTarget = aiC.status.targets[aiC.status.targetNum].position - ai_pos;
             status.ToTarget.y += 0.5f;
             status.realDist = status.ToTarget.magnitude;
+            //set.aimIssue *= (aiC.status.realDist / 10);
             Vector3 random = new Vector3(Random.Range(0.0f,set.aimIssue)-set.aimIssue/2, Random.Range(0.0f,set.aimIssue)-set.aimIssue/2,Random.Range(0.0f, set.aimIssue) - set.aimIssue / 2);
             status.ToTarget += random;
             if (aiC.status.realDist<RW.MaxRange*set.aimingRange)
@@ -77,9 +79,18 @@ public class AIWeaponCtrl : MonoBehaviour
         {
             if (timer >= 1&&comp.StartSign)
             {
-                
-                timer = 0;
-                RW.Shoot();
+                bool isParent = false;
+                isParent = CIU.isAimingSelf();//자기 자신을 조준 중인지 확인
+
+                if (!isParent)
+                {
+                    RW.Shoot();
+                    timer = 0;
+                }
+                else
+                {
+                    //Debug.Log(transform.parent.name + "이 자신을 겨눴음");
+                }
                 //Debug.Log("Shoot");
             }
         }

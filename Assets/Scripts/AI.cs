@@ -94,7 +94,7 @@ public class AI : MonoBehaviour
         {
             status.brakeBool = true;
         }
-        else if(controller.GetComponent<VehicleControl>().speed<15.0f)
+        else if(controller.GetComponent<VehicleControl>().speed<40.0f)
         {
             status.brakeBool = false;
         }
@@ -106,16 +106,24 @@ public class AI : MonoBehaviour
         {
             status.brakeBool = true;
         }
+        else if (controller.GetComponent<VehicleControl>().speed >= 60.0f && waypoints[status.currentWaypoint].corner)
+        {
+            status.brakeBool = true;
+        }
+        else if(controller.GetComponent<VehicleControl>().speed>=50.0f&&angle>=30)
+        {
+            status.brakeBool=true;
+        }
         else
         {
             status.brakeBool = false;
         }
-
+        status.accelFloat /= 5;
         //코너 감속
-        //if (waypoints[status.currentWaypoint].corner)
-        //{
+        if (waypoints[status.currentWaypoint].corner&&controller.GetComponent<VehicleControl>().speed>=40.0f)
+        {
             status.accelFloat /= set.cornerBrake;
-        //}
+        }
 
         //추진
         controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(status.currentAngle, status.accelFloat,status.brakeBool,status.shiftBool);
@@ -127,7 +135,7 @@ public class AI : MonoBehaviour
         //디버그
         Debug.DrawRay(transform.position, toTarget,Color.white);
 
-
+        //사격 목표 탐색
         float dist = 0;
         if(status.targetNum!=-1)
         {
@@ -138,12 +146,12 @@ public class AI : MonoBehaviour
             Vector3 instTarget = status.targets[i].position - controller.transform.position;
             float curDist = instTarget.magnitude;
             
-            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name))
+            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 status.targetNum = i;
                 dist = curDist;
             }
-            else if (dist > curDist && (status.targets[i].name!=gameObject.name))
+            else if (dist > curDist && (status.targets[i].name!=gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 dist = curDist;
                 status.targetNum = i;
