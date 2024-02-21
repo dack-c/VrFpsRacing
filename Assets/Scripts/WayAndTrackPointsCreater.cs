@@ -55,31 +55,13 @@ public class WayAndTrackPointsCreater : MonoBehaviour
         List<Vector3> centerPoints = new List<Vector3>();
         double distance = 0;
 
-        /*for (int i = 0; i < colliderVertices.Length; i += wayPointInterval)//waypoint 생성
-        {
-            Vector3 centerPoint = (colliderVertices[i] + colliderVertices[i + 1]) / 2.0f;
-
-                GameObject waypointObj = Instantiate(waypointPrefab, centerPoint, Quaternion.identity);
-                waypoints.Add(waypointObj.transform);
-                rightEdgeForWaypoints.Add(colliderVertices[i]);
-                waypointObj.transform.parent = wayPointParent.transform;
-                if (waypointAttrList.Contains(th) && manual)
-                {
-                    waypointObj.GetComponent<WaypointAttr>().ways.befCorner = true;
-                    waypointsList.Add(waypointObj);
-                }
-                waypointObj.GetComponent<WaypointAttr>().ways.element = waypointObj.transform;
-                waypointObj.GetComponent<WaypointAttr>().ways.th = th;
-                th++;
-        }
-        */
         for (int i = 0; i < colliderVertices.Length; i += 2)//waypoint 생성
         {
             Vector3 centerPoint = (colliderVertices[i] + colliderVertices[i + 1]) / 2.0f;
             centerPoints.Add(centerPoint);
             if (centerPoints.Count >= 2)
             {
-                Vector3 inst = centerPoints[centerPoints.Count-1] - centerPoints[centerPoints.Count - 2];
+                Vector3 inst = centerPoints[centerPoints.Count - 1] - centerPoints[centerPoints.Count - 2];
                 inst.y = 0;
                 distance += inst.magnitude;
             }
@@ -90,7 +72,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 waypoints.Add(waypointObj.transform);
                 rightEdgeForWaypoints.Add(colliderVertices[i]);
                 //waypointObj.transform.parent = wayPointParent.transform;
-                if (waypointAttrList.Contains(th)&&manual)//수동 코너 지정
+                if (waypointAttrList.Contains(th) && manual)//수동 코너 지정
                 {
                     waypointObj.GetComponent<WaypointAttr>().ways.befCorner = true;
                     waypointsList.Add(waypointObj);
@@ -102,7 +84,7 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 distance = 0;
             }
         }
-        if(distance!=0)
+        if (distance != 0)
         {
             waypoints[0].GetComponent<WaypointAttr>().ways.length += distance;
             distance = 0;
@@ -233,16 +215,6 @@ public class WayAndTrackPointsCreater : MonoBehaviour
                 reverseAngleSum = 0f;
             }
         }
-
-        /*for (int i = 0; i < waypoints.Count-trackPointInterval; i += trackPointInterval) //waypoint위치에 trackpoint생성
-        {
-            GameObject trackpointObj = Instantiate(trackpointPrefab, waypoints[i].position, Quaternion.identity);
-            trackpointObj.transform.LookAt(rightEdgeForWaypoints[i]);
-            trackpointObj.transform.Rotate(0, 90, 0);
-            trackpointObj.transform.Translate(0, 3.5f, 0);
-            trackpoints.Add(trackpointObj.transform);
-            trackpointObj.transform.parent = trackPointParent.transform;
-        }*/
     }
 
     private int FindClosestAndForwardWaypointIndexFrom(Transform origin)
@@ -265,34 +237,6 @@ public class WayAndTrackPointsCreater : MonoBehaviour
         }
         return closestIndex;
     }
-
-    /*private int FindClosestAndForwardWaypointIndexFrom(Transform origin)// origin 앞에 있는 웨이포인트들 중에서 가장 가까운 웨이포인트 찾기 
-    {
-        int result = 0;
-        BinarySearchForClosestAndForwardWaypoint(origin, 0, waypoints.Count-1, ref result);
-        return result;
-    }
-
-    private void BinarySearchForClosestAndForwardWaypoint(Transform origin, int left, int right, ref int result)
-    {
-        if(left > right)
-        {
-            return;
-        }
-
-        int center = (left + right) / 2;
-        Vector3 directionToWaypoint = waypoints[center].position - origin.position;
-        float angle = Vector3.Angle(origin.forward, directionToWaypoint);
-        if (angle < 90)//이 웨이포인트가 origin의 앞에 있을 경우
-        {
-            result = center;
-            BinarySearchForClosestAndForwardWaypoint(origin, left, center-1, ref result); //앞에 있으면서 더 가까운 웨이포인트들이 있는지 탐색
-        }
-        else
-        {
-            BinarySearchForClosestAndForwardWaypoint(origin, center+1, right, ref result); //일단 뒤에 있으므로 앞에 있는 웨이포인트들을 향해 탐색
-        }
-    }*/
 
     private float CaculateWaypointAngle(int frontIndex, bool isReturnSigned)//이 index의 다음 index와, 그 다음 index 사이의 각도를 구하는 함수
     {
@@ -330,18 +274,5 @@ public class WayAndTrackPointsCreater : MonoBehaviour
         
 
         return angle;
-    }
-
-    public static float GetAngleSigned(Vector3 vStart, Vector3 vEnd) //두 벡터 사이의 각도: -180~180
-    {
-        Vector3 v = vEnd - vStart;
-
-        return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
