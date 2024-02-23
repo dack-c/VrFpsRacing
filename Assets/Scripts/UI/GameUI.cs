@@ -13,10 +13,13 @@ public class GameUI : MonoBehaviour
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
-    public GameObject startCountdownUI;
+    public GameObject StartCountdownUI;
+    public List<GameObject> ItemSlotUI;
 
     public Damageable playerDamageable;
 
+    private List<Image> itemDisplay;
+    private List<Image> itemBorder;
     private static List<LapController> playerLaps = new List<LapController>();
 
     void Start()
@@ -32,6 +35,12 @@ public class GameUI : MonoBehaviour
         for (int i = 0; i < GameManager.I.Players.Length; i++)
         {
             playerLaps.Add(GameManager.I.Players[i]);
+        }
+        for (int i = 0; i < GameManager.I.SelectedItem.Count; i++)
+        {
+            //itemDisplay.Add();
+            itemDisplay[i].sprite = GameManager.I.SelectedItem[i].itemIcon;
+            //itemBorder.Add();
         }
     }
 

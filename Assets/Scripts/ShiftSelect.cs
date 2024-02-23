@@ -12,7 +12,7 @@ public class ShiftSelect : MonoBehaviour
     {
         // Disable Start buttons, and HUD countdown UI output
         ControlButton.SetActive(false);
-        GameManager.I.Hud.startCountdownUI.GetComponent<RaceCountdown>().StartCountdown();
+        GameManager.I.Hud.StartCountdownUI.GetComponent<RaceCountdown>().StartCountdown();
 
         // Wait for 5 seconds for the countdown to start
         await Task.Delay(5000);

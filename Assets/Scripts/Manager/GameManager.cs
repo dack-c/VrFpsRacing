@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Track CurrentTrack;
     public CompeterCtrl CompeterCtrl; //ai차량에 출발신호를 주기 위해(startSign = true)
     public GameUI Hud;
+    public List<ItemDefinition> SelectedItem;
 
     // Start is called before the first frame update
     void Awake()
