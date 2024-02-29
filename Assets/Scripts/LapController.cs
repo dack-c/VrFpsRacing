@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LapController : MonoBehaviour
@@ -18,7 +19,7 @@ public class LapController : MonoBehaviour
 
     public Transform Transform;
 
-    private void Awake()
+    private void Start()
     {
         Transform = GetComponent<Transform>();
         for (int i = 0; i < GameManager.I.CurrentTrack.finishLaps; i++)
@@ -50,7 +51,7 @@ public class LapController : MonoBehaviour
         }
     }
 
-    public void ProcessFinishline()
+    public void ProcessFinishline()// finishLine통과 시, Finishline obj에서 들어온 car(labcontroller)의 이 함수를 호출
     {
         if (!isStarted) return;
         if (currentTrackpointIndex == GameManager.I.CurrentTrack.trackpoints.Length - 1)
@@ -61,7 +62,12 @@ public class LapController : MonoBehaviour
             if (currentLaps > GameManager.I.CurrentTrack.finishLaps && !isFinished)
             {
                 Debug.Log($"");
-                isFinished = true;
+                isFinished = true; //해당 car를 완주 상태로 변경
+                GameManager.I.CurrentTrack.UpdateFinishedCarNum(); //완주한 차량 개수들 업데이트
+                if (isPlayer)//들어온게 플레이어면 게임종료
+                {
+                    GameManager.I.CurrentTrack.EndGame(Track.Result.Finish);
+                }
             }
             currentTrackpointIndex = -1;
         }

@@ -57,6 +57,7 @@ public class CarEnter : MonoBehaviour
         carDestination.GetComponent<CarExit>().intheCar = true;
 
         enterCube.SetActive(false); //  disable the enter cube
+
     }
 
     private void OnTriggerEnter(Collider other)

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public LapController[] Players;
     public Track CurrentTrack;
+    public CompeterCtrl CompeterCtrl; //ai차량에 출발신호를 주기 위해(startSign = true)
 
     // Start is called before the first frame update
     void Awake()

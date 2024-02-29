@@ -11,7 +11,7 @@ public class GameEnd : MonoBehaviour
         public float time;
         public string name;
     }
-    public int finished;
+    public int finished; //몇명이 들어왔는지
     public int rank;
     public float Limittime;
     public bool enter;
@@ -41,7 +41,7 @@ public class GameEnd : MonoBehaviour
                 
         }
         if (Limittime < 0) Endgame();
-        if (finished == 3) Endgame();
+        if (finished == 3) Endgame(); //플레이어가 들어오거나 죽으면 바로 끝남. 이 코드 잘못됨
     }
     public void FinishEnter(string name)
     {
@@ -53,7 +53,7 @@ public class GameEnd : MonoBehaviour
     }
     public void Endgame()
     {
-        //rank�� -1 �̸� ��Ÿ�̾�, 4 �̻��̸� �й�
+        //rank가 -1 이면 리타이어, 4 이상이면 패배
         Debug.Log("game end \nrank:"+rank);
         Debug.Log(labtime[0].name + "  " + labtime[0].time);
         Debug.Log(labtime[1].name + "  " + labtime[1].time);
