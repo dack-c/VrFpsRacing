@@ -1145,7 +1145,12 @@ MonoBehaviour:
   finishTimeText: {fileID: 3212954381980742543}
   hpText: {fileID: 2273583508419816690}
   StartCountdownUI: {fileID: 0}
-  ItemSlotUI: []
+  ItemSlotUI:
+  - {fileID: 6866228887128499221}
+  - {fileID: 6796694581143154020}
+  - {fileID: 2102960369786264363}
+  - {fileID: 9019078522547252669}
+  EmptyItemSprite: {fileID: 550278196, guid: 7d74038f347451d4081e0d6e5c160a0a, type: 3}
   playerDamageable: {fileID: 0}
 --- !u!1 &3956510089764187838
 GameObject:
