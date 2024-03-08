@@ -34,7 +34,7 @@ public class ItemManager : MonoBehaviour
 
     private List<GameObject> selectedItemHolders;
 
-    private void Start()
+    private void OnEnable()
     {
         /*object1 = GameObject.Find("Item 1");
         object2 = GameObject.Find("Item 2");
@@ -58,6 +58,14 @@ public class ItemManager : MonoBehaviour
             selectedItemHolders[i].GetComponent<TMP_Text>().text = itemEmptyText;
 
             ChangeBtnColor(uncheckedColor, selectedItemHolders[i].GetComponent<Button>());
+        }
+
+        if(DataManager.I.LoadSelectedItemData())//저장된 선택 아이템 설정이 존재하면 불러오기 
+        {
+            for(int i = 0; i < DataManager.maxItemNum; i++)
+            {
+                selectedItemHolders[i].GetComponent<TMP_Text>().text = DataManager.I.selectedItemInfos[i].name;
+            }
         }
     }
 
@@ -119,7 +127,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void OnClickSaveBtn()// 테스트 필요
+    public void OnClickSaveBtn()
     {
         //저장할 데이터 생성
         SelectedItemInfo[] itemInfoToSave = new SelectedItemInfo[DataManager.maxItemNum];
@@ -144,7 +152,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void OnClickBackBtn()
+    public void OnClickBackBtn()//보니까 UIScreen에서 각 Screen을 연결시켜주는 것 같아.
     {
         StopAllCoroutines();
         itemMenuScreenObj.SetActive(false);
