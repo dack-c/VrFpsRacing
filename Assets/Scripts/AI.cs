@@ -123,7 +123,7 @@ public class AI : MonoBehaviour
         if (waypoints[status.currentWaypoint].corner&&controller.GetComponent<VehicleControl>().speed>=40.0f)
         {
             status.accelFloat /= set.cornerBrake;
-        //}
+        }
 
         //추진
         controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(status.currentAngle, status.accelFloat,status.brakeBool,status.shiftBool);
