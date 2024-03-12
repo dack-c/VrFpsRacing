@@ -14,6 +14,12 @@ public class Record
     public int destroyedCarNum;
 }
 
+[Serializable]
+public class SelectedItemInfo //속성등 수정될 여지 존재.
+{
+    public string name;//None이 올수도
+}
+
 public class DataManager : MonoBehaviour
 {
     public static DataManager I { get; private set; }
@@ -30,24 +36,32 @@ public class DataManager : MonoBehaviour
     }
 
     public List<Record> records; //기록 데이터들
+    public SelectedItemInfo[] selectedItemInfos; //선택된 아이템 정보들
 
-    private string m_filePath;
+    public const int maxItemNum = 3; //가질 수 있는 아이템 개수
+
+    private string m_recordFilePath;
+    private string m_selectedItemInfoFilePath;
+
     private BinaryFormatter binaryFormatter = new BinaryFormatter();
 
     void Start()
     {
-        m_filePath = Application.persistentDataPath + @"\Records.dat"; //기록데이터가 저장될 파일 경로
-        List<Record> records = new List<Record>();
+        m_recordFilePath = Application.persistentDataPath + @"\Records.dat"; //기록데이터가 저장될 파일 경로
+        records = new List<Record>();
+
+        m_selectedItemInfoFilePath = Application.persistentDataPath + @"\SelectedItemInfos.dat"; //아이템 데이터가 저장될 파일 경로
+        selectedItemInfos = new SelectedItemInfo[maxItemNum];
     }
 
     public bool LoadRecordData() //Record데이터를 파일로부터 불러옴
     {
-        if (!File.Exists(m_filePath))
+        if (!File.Exists(m_recordFilePath))
         {
             return false;
         }
 
-        using (Stream rs = new FileStream(m_filePath, FileMode.Open))
+        using (Stream rs = new FileStream(m_recordFilePath, FileMode.Open))
         {
             records = (List<Record>)binaryFormatter.Deserialize(rs);
         }
@@ -59,9 +73,46 @@ public class DataManager : MonoBehaviour
         records.Add(record);
         try
         {
-            using (Stream ws = new FileStream(m_filePath, FileMode.Create))
+            using (Stream ws = new FileStream(m_recordFilePath, FileMode.Create))
             {
                 binaryFormatter.Serialize(ws, records);
+            }
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.ToString());
+            return false;
+        }
+    }
+
+    public bool LoadSelectedItemData()
+    {
+        if (!File.Exists(m_selectedItemInfoFilePath))
+        {
+            return false;
+        }
+
+        using (Stream rs = new FileStream(m_selectedItemInfoFilePath, FileMode.Open))
+        {
+            selectedItemInfos = (SelectedItemInfo[])binaryFormatter.Deserialize(rs);
+        }
+        return true;
+    }
+
+    public bool SaveSelectedItemData(SelectedItemInfo[] itemInfosToSave)
+    {
+        for(int i = 0; i < maxItemNum; i++)
+        {
+            selectedItemInfos[i] = itemInfosToSave[i];
+        }
+
+        try
+        {
+            using (Stream ws = new FileStream(m_selectedItemInfoFilePath, FileMode.Create))
+            {
+                binaryFormatter.Serialize(ws, selectedItemInfos);
             }
 
             return true;

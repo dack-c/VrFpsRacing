@@ -17,18 +17,18 @@ public class AIWeaponCtrl : MonoBehaviour
     [System.Serializable]
     public class stat
     {
-        public Vector3 ToTarget;//Á¶ÁØ À§Ä¡
-        public float realDist;//Å¸°Ù°úÀÇ °Å¸®
-        public int targetNum=-1;//Å¸°Ù ¹øÈ£
+        public Vector3 ToTarget;//ì¡°ì¤€ ìœ„ì¹˜
+        public float realDist;//íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬
+        public int targetNum=-1;//íƒ€ê²Ÿ ë²ˆí˜¸
     }
     public stat status;
 
     [System.Serializable]
     public class setting
     {
-        public float aimingRange=1.2f;//Á¶ÁØ ½ÃÀÛ °Å¸®. ¹«±â »çÁ¤°Å¸® * aimingRange
-        public float fireRange = 1.0f;//»ç°İ ½ÃÀÛ °Å¸®. ¹«±â »çÁ¤°Å¸® * fireRange
-        public float aimIssue = 5.0f; //»ç°İ½Ã Á¶ÁØ ¿ÀÂ÷¹üÀ§
+        public float aimingRange=1.2f;//ì¡°ì¤€ ì‹œì‘ ê±°ë¦¬. ë¬´ê¸° ì‚¬ì •ê±°ë¦¬ * aimingRange
+        public float fireRange = 1.0f;//ì‚¬ê²© ì‹œì‘ ê±°ë¦¬. ë¬´ê¸° ì‚¬ì •ê±°ë¦¬ * fireRange
+        public float aimIssue = 5.0f; //ì‚¬ê²©ì‹œ ì¡°ì¤€ ì˜¤ì°¨ë²”ìœ„
     }
     public setting set;
 
@@ -57,7 +57,7 @@ public class AIWeaponCtrl : MonoBehaviour
         
         timer += Time.deltaTime;
 
-        //Å¸°Ù Á¶ÁØ
+        //íƒ€ê²Ÿ ì¡°ì¤€
         if(timer>=1)
         {
             status.ToTarget = aiC.status.targets[aiC.status.targetNum].position - ai_pos;
@@ -73,14 +73,14 @@ public class AIWeaponCtrl : MonoBehaviour
         }
         Debug.DrawRay(transform.position, status.ToTarget, Color.yellow);
 
-        //»ç°İ
+        //ì‚¬ê²©
         
         if(aiC.status.realDist <= RW.MaxRange*set.fireRange)
         {
             if (timer >= 1&&comp.StartSign)
             {
                 bool isParent = false;
-                isParent = CIU.isAimingSelf();//ÀÚ±â ÀÚ½ÅÀ» Á¶ÁØ ÁßÀÎÁö È®ÀÎ
+                isParent = CIU.isAimingSelf();//ìê¸° ìì‹ ì„ ì¡°ì¤€ ì¤‘ì¸ì§€ í™•ì¸
 
                 if (!isParent)
                 {
@@ -89,7 +89,7 @@ public class AIWeaponCtrl : MonoBehaviour
                 }
                 else
                 {
-                    //Debug.Log(transform.parent.name + "ÀÌ ÀÚ½ÅÀ» °Ü´³À½");
+                    //Debug.Log(transform.parent.name + "ì´ ìì‹ ì„ ê²¨ëˆ´ìŒ");
                 }
                 //Debug.Log("Shoot");
             }
