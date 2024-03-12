@@ -13,7 +13,7 @@ public class GameUI : MonoBehaviour
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
-    public GameObject StartCountdownUI;
+    public RaceCountdown StartCountdownUI;
     public List<GameObject> ItemSlotUI;
     public Sprite EmptyItemSprite;
 
@@ -106,7 +106,7 @@ public class GameUI : MonoBehaviour
     /// Functions to apply UI to selected item slots
     /// </summary>
     /// <param name="slotNum">index number of the selected item slot</param>
-    private void SwitchSelectedSlot(int slotNum)
+    public void SwitchSelectedSlot(int slotNum)
     {
         if (GameManager.I.currentItemSlotIndex == slotNum)
             return;
@@ -123,7 +123,7 @@ public class GameUI : MonoBehaviour
     /// </summary>
     /// <param name="index">Index number of the item slot you want to change </param>
     /// <param name="itemIcon">Item icon to fit into the item slot. To set it to an empty icon, you can put null. </param>
-    private void ChangeSlotIcon(int index, Sprite itemIcon)
+    public void ChangeSlotIcon(int index, Sprite itemIcon)
     {
         if (itemIcon == null)
             itemIconDisplay[index].sprite = EmptyItemSprite;
