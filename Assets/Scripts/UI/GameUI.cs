@@ -13,9 +13,14 @@ public class GameUI : MonoBehaviour
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
+    public GameObject StartCountdownUI;
+    public List<GameObject> ItemSlotUI;
+    public Sprite EmptyItemSprite;
 
     public Damageable playerDamageable;
 
+    private List<Image> itemIconDisplay;
+    private List<Image> itemBorderDisplay;
     private static List<LapController> playerLaps = new List<LapController>();
 
     void Start()
@@ -32,6 +37,16 @@ public class GameUI : MonoBehaviour
         {
             playerLaps.Add(GameManager.I.Players[i]);
         }
+        for (int i = 0; i < ItemSlotUI.Count; i++)
+        {
+            itemIconDisplay.Add(ItemSlotUI[i].transform.GetChild(0).transform.GetChild(0).GetComponent<Image>());
+            if (i < GameManager.I.SelectedItem.Count)
+                ChangeSlotIcon(i, GameManager.I.SelectedItem[i].itemIcon);
+            else
+                ChangeSlotIcon(i, null);
+            itemBorderDisplay.Add(ItemSlotUI[i].transform.GetChild(0).GetComponent<Image>());
+        }
+        SwitchSelectedSlot(0);
     }
 
     void Update()
@@ -42,7 +57,9 @@ public class GameUI : MonoBehaviour
         if (LapController.isStarted) UpdateRaceTime();
         if (LapController.isFinished) SetFinishTime();
     }
-    
+
+
+    // Update Game UI
     private void UpdateRanking()
     {
         SortRanking();
@@ -58,7 +75,7 @@ public class GameUI : MonoBehaviour
 
         playerLaps.Sort((a, b) => a.lapValue.CompareTo(b.lapValue));
     }
-    
+
     private void UpdateRaceTime()
     {
         var lapTimes = LapController.currentLapTime;
@@ -78,6 +95,39 @@ public class GameUI : MonoBehaviour
 
     private void UpdateHP()
     {
-        hpText.text = $"{(int)(playerDamageable.Health)}"; // Write down the player's HP here
+        // Write down the player's HP here
+        hpText.text = $"{(int)(playerDamageable.Health)}";
+    }
+
+
+    // Update Item UI
+
+    /// <summary>
+    /// Functions to apply UI to selected item slots
+    /// </summary>
+    /// <param name="slotNum">index number of the selected item slot</param>
+    private void SwitchSelectedSlot(int slotNum)
+    {
+        if (GameManager.I.currentItemSlotIndex == slotNum)
+            return;
+
+        GameManager.I.currentItemSlotIndex = slotNum;
+        itemBorderDisplay[slotNum].enabled = true;
+        for (int i = 0; i < itemBorderDisplay.Count; i++)
+            if (i != slotNum)
+                itemBorderDisplay[i].enabled = false;
+    }
+
+    /// <summary>
+    /// Change the icon of the item slot.
+    /// </summary>
+    /// <param name="index">Index number of the item slot you want to change </param>
+    /// <param name="itemIcon">Item icon to fit into the item slot. To set it to an empty icon, you can put null. </param>
+    private void ChangeSlotIcon(int index, Sprite itemIcon)
+    {
+        if (itemIcon == null)
+            itemIconDisplay[index].sprite = EmptyItemSprite;
+
+        itemIconDisplay[index].sprite = itemIcon;
     }
 }

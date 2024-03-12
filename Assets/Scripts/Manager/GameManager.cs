@@ -9,7 +9,13 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public LapController[] Players;
     public Track CurrentTrack;
-    public CompeterCtrl CompeterCtrl; //aiÂ÷·®¿¡ Ãâ¹ß½ÅÈ£¸¦ ÁÖ±â À§ÇØ(startSign = true)
+    public CompeterCtrl CompeterCtrl; //aiì°¨ëŸ‰ì— ì¶œë°œì‹ í˜¸ë¥¼ ì£¼ê¸° ìœ„í•´(startSign = true)
+    public GameUI Hud;
+    public List<ItemDefinition> SelectedItem;
+
+    // For now, the index number of the selected item slot is temporarily written in 'GameManager',
+    // but after that, an 'ItemController' is created to manage the item and managed there.
+    public int currentItemSlotIndex = 0; 
 
     // Start is called before the first frame update
     void Awake()
@@ -22,10 +28,4 @@ public class GameManager : MonoBehaviour
         I = this;
         DontDestroyOnLoad(gameObject);
     } 
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

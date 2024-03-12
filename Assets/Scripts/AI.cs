@@ -12,13 +12,13 @@ public class AI : MonoBehaviour
     public CompeterCtrl competerCtrl;
 
     [System.Serializable]
-    public class stat //½ºÅ×ÀÌÅÍ½º. ÁöÁ¤ ºÒÇÊ¿ä
+    public class stat //ìŠ¤í…Œì´í„°ìŠ¤. ì§€ì • ë¶ˆí•„ìš”
     {
-        public int currentWaypoint; //ÇöÀç ÃßÀûÁßÀÎ ¿şÀÌÆ÷ÀÎÆ®
-        public float currentAngle; //ÇöÀç ¿şÀÌÆ÷ÀÎÆ®¿Í ÀÚ½ÅÀÇ °¢µµ
-        public float accelFloat; //°¡¼ÓÄ¡
-        public bool brakeBool = false; //ºê·¹ÀÌÅ©
-        public bool shiftBool = false; //±â¾î
+        public int currentWaypoint; //í˜„ì¬ ì¶”ì ì¤‘ì¸ ì›¨ì´í¬ì¸íŠ¸
+        public float currentAngle; //í˜„ì¬ ì›¨ì´í¬ì¸íŠ¸ì™€ ìì‹ ì˜ ê°ë„
+        public float accelFloat; //ê°€ì†ì¹˜
+        public bool brakeBool = false; //ë¸Œë ˆì´í¬
+        public bool shiftBool = false; //ê¸°ì–´
         public List<Transform> targets;
         public int targetNum=-1;
         public float realDist = 0;
@@ -27,14 +27,14 @@ public class AI : MonoBehaviour
     public stat status;
 
     [System.Serializable]
-    public class setting//¼¼ÆÃ. ÀÓÀÇ·Î Á¶Àı °¡´É
+    public class setting//ì„¸íŒ…. ì„ì˜ë¡œ ì¡°ì ˆ ê°€ëŠ¥
     {
-        public float waypointRange = 13; //´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ®·Î ÇâÇÏ±â À§ÇÑ ¼³Á¤°ª
-        public float fullAccelRange = 70; //ÃÖ´ë °¡¼ÓÀ» À§ÇØ ¿şÀÌÆ÷ÀÎÆ®°¡ ¶³¾îÁ® ÀÖ¾î¾ß ÇÏ´Â °Å¸®
-        public float handling = 4; //¹æÇâÀüÈ¯ °¡ÁßÄ¡
-        public float cornerBrake = 5; //ÄÚ³Ê °¨¼Ó
-        public float safeRange = 3; //¾ÈÀü°Å¸®
-        public bool avoidCol = false; //¾ÈÀü°Å¸® ÁØ¼ö ¼³Á¤
+        public float waypointRange = 13; //ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ë¡œ í–¥í•˜ê¸° ìœ„í•œ ì„¤ì •ê°’
+        public float fullAccelRange = 70; //ìµœëŒ€ ê°€ì†ì„ ìœ„í•´ ì›¨ì´í¬ì¸íŠ¸ê°€ ë–¨ì–´ì ¸ ìˆì–´ì•¼ í•˜ëŠ” ê±°ë¦¬
+        public float handling = 4; //ë°©í–¥ì „í™˜ ê°€ì¤‘ì¹˜
+        public float cornerBrake = 5; //ì½”ë„ˆ ê°ì†
+        public float safeRange = 3; //ì•ˆì „ê±°ë¦¬
+        public bool avoidCol = false; //ì•ˆì „ê±°ë¦¬ ì¤€ìˆ˜ ì„¤ì •
     }
     public setting set;
 
@@ -56,7 +56,7 @@ public class AI : MonoBehaviour
         }
 
 
-        //´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ® Å½»ö
+        //ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ íƒìƒ‰
         float waypointDist = Vector3.Distance(waypoints[status.currentWaypoint].waypoint_pos, transform.position);
         if (waypointDist<set.waypointRange)
         {
@@ -64,7 +64,7 @@ public class AI : MonoBehaviour
             if(status.currentWaypoint==waypoints.Count) { status.currentWaypoint = 0; }
         }
 
-        //¿¢¼¿·¯·¹ÀÌÅÍ °­µµ Á¶Àı
+        //ì—‘ì…€ëŸ¬ë ˆì´í„° ê°•ë„ ì¡°ì ˆ
         if (waypointDist < set.fullAccelRange)
         {
             status.accelFloat = waypointDist / set.fullAccelRange * 1.0f;
@@ -79,22 +79,22 @@ public class AI : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         Vector3 toTarget = waypoints[status.currentWaypoint].waypoint_pos - transform.position;
 
-        //»ó´ë ÀÚµ¿Â÷¿ÍÀÇ °£°İ Á¶Àı
+        //ìƒëŒ€ ìë™ì°¨ì™€ì˜ ê°„ê²© ì¡°ì ˆ
         if(status.realDist <set.safeRange&&set.avoidCol)
         {
             toTarget += status.aimingTarget *1.2f * -1;
         }
 
-        //ÇÚµé¸µ °¢µµ °è»ê
+        //í•¸ë“¤ë§ ê°ë„ ê³„ì‚°
         float angle = Vector3.Angle(fwd, toTarget);
         status.currentAngle = Vector3.SignedAngle(fwd, toTarget,Vector3.up)/180*set.handling;
 
-        //ºê·¹ÀÌÅ© Á¶°Ç
+        //ë¸Œë ˆì´í¬ ì¡°ê±´
         if(!competerCtrl.StartSign)
         {
             status.brakeBool = true;
         }
-        else if(controller.GetComponent<VehicleControl>().speed<15.0f)
+        else if(controller.GetComponent<VehicleControl>().speed<40.0f)
         {
             status.brakeBool = false;
         }
@@ -106,28 +106,36 @@ public class AI : MonoBehaviour
         {
             status.brakeBool = true;
         }
+        else if (controller.GetComponent<VehicleControl>().speed >= 60.0f && waypoints[status.currentWaypoint].corner)
+        {
+            status.brakeBool = true;
+        }
+        else if(controller.GetComponent<VehicleControl>().speed>=50.0f&&angle>=30)
+        {
+            status.brakeBool=true;
+        }
         else
         {
             status.brakeBool = false;
         }
-
-        //ÄÚ³Ê °¨¼Ó
-        //if (waypoints[status.currentWaypoint].corner)
-        //{
+        status.accelFloat /= 5;
+        //ì½”ë„ˆ ê°ì†
+        if (waypoints[status.currentWaypoint].corner&&controller.GetComponent<VehicleControl>().speed>=40.0f)
+        {
             status.accelFloat /= set.cornerBrake;
         //}
 
-        //ÃßÁø
+        //ì¶”ì§„
         controller.GetComponent<VehicleAIControl>().ChangeVehicleControlState(status.currentAngle, status.accelFloat,status.brakeBool,status.shiftBool);
         //controller.GetComponent<VehicleAIControl>().initialSteerFloat = currentAngle;
         //controller.GetComponent<VehicleAIControl>().initialAccelFloat = accelFloat;
         //controller.GetComponent<VehicleAIControl>().initialBrakeBool = brakeBool;
         //controller.GetComponent<VehicleAIControl>().initialShiftBool = shiftBool;
 
-        //µğ¹ö±×
+        //ë””ë²„ê·¸
         Debug.DrawRay(transform.position, toTarget,Color.white);
 
-
+        //ì‚¬ê²© ëª©í‘œ íƒìƒ‰
         float dist = 0;
         if(status.targetNum!=-1)
         {
@@ -138,12 +146,12 @@ public class AI : MonoBehaviour
             Vector3 instTarget = status.targets[i].position - controller.transform.position;
             float curDist = instTarget.magnitude;
             
-            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name))
+            if (status.targetNum == -1 && (status.targets[i].name != gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 status.targetNum = i;
                 dist = curDist;
             }
-            else if (dist > curDist && (status.targets[i].name!=gameObject.name))
+            else if (dist > curDist && (status.targets[i].name!=gameObject.name) && status.targets[i].gameObject.activeSelf)
             {
                 dist = curDist;
                 status.targetNum = i;

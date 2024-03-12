@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ShiftSelect : MonoBehaviour
@@ -7,17 +6,19 @@ public class ShiftSelect : MonoBehaviour
     public GameObject stickShifter;
     public GameObject VehicleControl; //edit
     public int currentGear;
+    public GameObject ControlButton;
 
-    public void Standard()
+    public async void StartCar()
     {
-        stickShifter.SetActive(true);
-        VehicleControl.GetComponent<VehicleControl>().carSetting.automaticGear = false;
-    }
+        // Disable Start buttons, and HUD countdown UI output
+        ControlButton.SetActive(false);
+        GameManager.I.Hud.StartCountdownUI.GetComponent<RaceCountdown>().StartCountdown();
 
-    public void Automatic()
-    {
+        // Wait for 5 seconds for the countdown to start
+        await Task.Delay(5000);
+
         // start LapController
-        if(GameManager.I != null)
+        if (GameManager.I != null)
         {
             GameManager.I.Player.GetComponent<LapController>().isStarted = true;
             for (int i = 0; i < GameManager.I.Players.Length; i++)

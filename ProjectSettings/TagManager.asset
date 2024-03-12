@@ -8,6 +8,7 @@ TagManager:
   - Grass
   - Street
   - Finishline
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Overlay UI
   - 
   - Restricted
   - Player
@@ -24,8 +25,8 @@ TagManager:
   - WeaponStand
   - Weapon
   - Ground
-  - 
-  - 
+  - CameraIgnore
+  - Item
   - 
   - 
   - 

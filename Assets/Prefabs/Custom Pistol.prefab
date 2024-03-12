@@ -3488,6 +3488,7 @@ GameObject:
   - component: {fileID: 538538475923955465}
   - component: {fileID: 7056484269204318874}
   - component: {fileID: 3163328694227392097}
+  - component: {fileID: 1033876970252074647}
   m_Layer: 13
   m_Name: Custom Pistol
   m_TagString: Untagged
@@ -3737,7 +3738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxRange: 25
-  Damage: 25
+  Damage: 2
   FiringMethod: 0
   ReloadMethod: 0
   FiringRate: 0.05
@@ -3755,7 +3756,7 @@ MonoBehaviour:
   RecoilDuration: 0.3
   ValidLayers:
     serializedVersion: 2
-    m_Bits: 1281
+    m_Bits: 1283
   TriggerTransform: {fileID: 45687346667979986}
   SlideTransform: {fileID: 3020897404450921766}
   MuzzlePointTransform: {fileID: 3318204342888773489}
@@ -3930,6 +3931,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbable: {fileID: 0}
   isHeldInPre: 0
+--- !u!114 &1033876970252074647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016933961377265889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208a31a7fd0a8c64ab088c8f60d771fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 0}
+  onBeingGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7810523356246160544}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onBeingReleased:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7810523356246160544}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3031306990846630100
 GameObject:
   m_ObjectHideFlags: 0
