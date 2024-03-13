@@ -9,6 +9,6 @@ public class GameStart : MonoBehaviour
 
     public void OnClickGameStart()
     {
-        SceneManager.LoadScene("Carscene");
+        SceneManager.LoadScene("terrain tset Scene_M2");
     }
 }

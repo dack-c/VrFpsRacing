@@ -35,7 +35,7 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); //씬이 바뀌어도 DataManger는 삭제되지 않음. 즉, Record 데이터는 씬이 전환되도 계속 유지됨
     }
 
-    public List<Record> records; //기록 데이터들
+    public List<Record> records { get; private set; } //기록 데이터들
     public SelectedItemInfo[] selectedItemInfos; //선택된 아이템 정보들
 
     public const int maxItemNum = 3; //가질 수 있는 아이템 개수
@@ -52,6 +52,18 @@ public class DataManager : MonoBehaviour
 
         m_selectedItemInfoFilePath = Application.persistentDataPath + @"\SelectedItemInfos.dat"; //아이템 데이터가 저장될 파일 경로
         selectedItemInfos = new SelectedItemInfo[maxItemNum];
+
+        LoadRecordData(); //LoadRecordData() 하기 전에 SaveRecordData()를 해버려 기록이 덮어씌워져버리는 문제가 생길 수 있으므로, 처음부터 미리 load함.
+
+        //test
+        /*Record record = new Record
+        {
+            dateTime = DateTime.Now.ToString(),
+            result = "testResult",
+            labTime = 231.12f,
+            destroyedCarNum = 2
+        };
+        SaveRecordData(record);*/
     }
 
     public bool LoadRecordData() //Record데이터를 파일로부터 불러옴
