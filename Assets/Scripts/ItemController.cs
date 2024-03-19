@@ -18,12 +18,14 @@ public class ItemController : MonoBehaviour
 
     public void UseItem()
     {
-        selectedItem[currentSlot].Use();
+        if (selectedItem[currentSlot].Use())
+            ExpiredItem();
     }
 
     public void ExpiredItem()
     {
         selectedItem[currentSlot] = noItem;
+        GameManager.I.Hud.ChangeSlotIcon(currentSlot, null);
     }
 
     public int GetDropedItem(ItemDefinition item)
@@ -35,6 +37,7 @@ public class ItemController : MonoBehaviour
             else
             {
                 selectedItem[i] = item;
+                GameManager.I.Hud.ChangeSlotIcon(i, item.itemIcon);
                 return i;
             }
         }

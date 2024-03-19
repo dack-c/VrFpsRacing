@@ -17,17 +17,18 @@ public class ItemDefinition : ScriptableObject
     public Item item;
     public GameObject ItemPrefab; 
 
-    public void Use()
+    public bool Use()
     {
         switch (item)
         {
             case Item.None:
-                break;
+                return true;
             case Item.Test1:
             case Item.Test2:
             case Item.Test3:
                 Debug.Log("Use Test Item");
-                break;
+                return false;
         }
+        return false;
     }
 }
