@@ -51,7 +51,7 @@ public class ItemController : MonoBehaviour
         if (currentSlot == index)
             return;
 
-        // 플레이어가 장착한 아이템을 장착 해제하는 함수
+        // 이곳에 플레이어가 장착한 아이템을 장착 해제하는 기능을 작성
 
         currentSlot = index;
 
@@ -64,7 +64,7 @@ public class ItemController : MonoBehaviour
 
         if (selectedItem[currentSlot].isEquipable)
         {
-            // 플레이어에게 장착시키는 함수
+            // 이곳에 플레이어에게 아이템을 장착시키는 기능을 작성
         }
     }
 
