@@ -47,6 +47,12 @@ public class ItemController : MonoBehaviour
 
     public void SwitchItem(int index)
     {
+        // return if there is no change in the existing slot
+        if (currentSlot == index)
+            return;
+
+        // 플레이어가 장착한 아이템을 장착 해제하는 함수
+
         currentSlot = index;
 
         if (currentSlot < 0)
@@ -55,6 +61,11 @@ public class ItemController : MonoBehaviour
             currentSlot = 0;
 
         GameManager.I.Hud.SwitchSelectedSlot();
+
+        if (selectedItem[currentSlot].isEquipable)
+        {
+            // 플레이어에게 장착시키는 함수
+        }
     }
 
 #if UNITY_EDITOR
