@@ -6,19 +6,18 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    public GameObject Player;
-    public LapController LapController;
     public Text rankingText;
     public Text playerCountText;
     public Text raceTimeText;
     public Text finishTimeText;
     public Text hpText;
-    public GameObject StartCountdownUI;
+    public RaceCountdown StartCountdownUI;
     public List<GameObject> ItemSlotUI;
     public Sprite EmptyItemSprite;
 
     public Damageable playerDamageable;
 
+    private LapController LapController;
     private List<Image> itemIconDisplay;
     private List<Image> itemBorderDisplay;
     private static List<LapController> playerLaps = new List<LapController>();
@@ -30,8 +29,7 @@ public class GameUI : MonoBehaviour
 
     private void InitGameUI()
     {
-        Player = GameManager.I.Player;
-        LapController = Player.GetComponent<LapController>();
+        LapController = GameManager.I.Player.GetComponent<LapController>();
         playerCountText.text = $"{GameManager.I.Players.Length}";
         for (int i = 0; i < GameManager.I.Players.Length; i++)
         {
@@ -40,8 +38,8 @@ public class GameUI : MonoBehaviour
         for (int i = 0; i < ItemSlotUI.Count; i++)
         {
             itemIconDisplay.Add(ItemSlotUI[i].transform.GetChild(0).transform.GetChild(0).GetComponent<Image>());
-            if (i < GameManager.I.SelectedItem.Count)
-                ChangeSlotIcon(i, GameManager.I.SelectedItem[i].itemIcon);
+            if (i < GameManager.I.PlayerItemController.selectedItem.Length)
+                ChangeSlotIcon(i, GameManager.I.PlayerItemController.selectedItem[i].itemIcon);
             else
                 ChangeSlotIcon(i, null);
             itemBorderDisplay.Add(ItemSlotUI[i].transform.GetChild(0).GetComponent<Image>());
@@ -106,16 +104,28 @@ public class GameUI : MonoBehaviour
     /// Functions to apply UI to selected item slots
     /// </summary>
     /// <param name="slotNum">index number of the selected item slot</param>
-    private void SwitchSelectedSlot(int slotNum)
+    public void SwitchSelectedSlot(int slotNum)
     {
-        if (GameManager.I.currentItemSlotIndex == slotNum)
+        if (GameManager.I.PlayerItemController.currentSlot == slotNum)
             return;
 
-        GameManager.I.currentItemSlotIndex = slotNum;
+        GameManager.I.PlayerItemController.currentSlot = slotNum;
         itemBorderDisplay[slotNum].enabled = true;
         for (int i = 0; i < itemBorderDisplay.Count; i++)
             if (i != slotNum)
                 itemBorderDisplay[i].enabled = false;
+    }
+
+    public void SwitchSelectedSlot()
+    {
+        int _currentSlot = GameManager.I.PlayerItemController.currentSlot;
+        for (int i = 0; i < itemIconDisplay.Count; i++)
+        {
+            if (i == _currentSlot)
+                itemBorderDisplay[i].enabled = true;
+            else
+                itemBorderDisplay[i].enabled = false;
+        }
     }
 
     /// <summary>
@@ -123,7 +133,7 @@ public class GameUI : MonoBehaviour
     /// </summary>
     /// <param name="index">Index number of the item slot you want to change </param>
     /// <param name="itemIcon">Item icon to fit into the item slot. To set it to an empty icon, you can put null. </param>
-    private void ChangeSlotIcon(int index, Sprite itemIcon)
+    public void ChangeSlotIcon(int index, Sprite itemIcon)
     {
         if (itemIcon == null)
             itemIconDisplay[index].sprite = EmptyItemSprite;

@@ -1144,7 +1144,7 @@ MonoBehaviour:
   raceTimeText: {fileID: 3741124302087037455}
   finishTimeText: {fileID: 3212954381980742543}
   hpText: {fileID: 2273583508419816690}
-  StartCountdownUI: {fileID: 0}
+  StartCountdownUI: {fileID: 8864597258625229877}
   ItemSlotUI:
   - {fileID: 6866228887128499221}
   - {fileID: 6796694581143154020}
