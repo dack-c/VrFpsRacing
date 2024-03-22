@@ -7752,7 +7752,7 @@ GameObject:
   - component: {fileID: 1564472264}
   - component: {fileID: 1564472265}
   m_Layer: 5
-  m_Name: Car Selection Screen
+  m_Name: Item Selection Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

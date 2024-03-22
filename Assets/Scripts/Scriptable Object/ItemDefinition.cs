@@ -19,7 +19,11 @@ public class ItemDefinition : ScriptableObject
         None, 
         Test1, 
         Test2,
-        Test3
+        Test3,
+        Rpg9,
+        MachineGun,
+        RepairKit,
+        Booster
     }
 
     public string itemName;
