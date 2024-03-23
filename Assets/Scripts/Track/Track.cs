@@ -104,6 +104,6 @@ public class Track : MonoBehaviour
 
         //몇 초 후 메인씬으로 돌아가기
         yield return new WaitForSeconds(uiChangeDelay);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene_Editing");
     }
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Machine Gun
   m_EditorClassIdentifier: 
   itemName: Machine Gun
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 00187d5004d0dc7458be65506dfa3f2a, type: 3}
   item: 5
   isEquipable: 1
   isDisposable: 0
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 3518468931415342182, guid: 06bd73caf9f2142479af1147a972e04a,
+    type: 3}

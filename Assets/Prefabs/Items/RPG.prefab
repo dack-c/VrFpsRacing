@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6380924755650608737}
   - component: {fileID: 6902006332642830013}
   - component: {fileID: 2101230315809620399}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9005788634194721124}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Ejectpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9113248580724537231}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1039075049352939223}
   - component: {fileID: 6576766972063482157}
   - component: {fileID: 5168824531641869394}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 409812232367291235}
   - component: {fileID: 4778509889249931866}
   - component: {fileID: 1857923649938866535}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: RedDotLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 2071592979993705719}
   - component: {fileID: 6421601712116604837}
   - component: {fileID: 6289755095780951474}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 9006823859126285374}
   - component: {fileID: 975418224752012283}
   - component: {fileID: 1433815176566583543}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: LaserEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 389081692224110104}
   - component: {fileID: 3602410170651462765}
   - component: {fileID: 3360285134264239488}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9198905119083746216}
   - component: {fileID: 4996811415135248123}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 2489785191991569191}
   - component: {fileID: 1402594079733599456}
   - component: {fileID: 5482867179895131803}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1762218027087859964}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 1141090523495650275}
   - component: {fileID: 6520549706907124340}
   - component: {fileID: 745914146648182599}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 8007284349195645861}
   - component: {fileID: 3355389480527082770}
   - component: {fileID: 6210261042316050594}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ClipRelease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1132,7 +1132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2953124413903327033}
   - component: {fileID: 6901207199636100648}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GripTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 7582260667606880524}
   - component: {fileID: 1096685538842869112}
   - component: {fileID: 2927258105324402421}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: RPG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ Transform:
   - {fileID: 8783159412269417100}
   - {fileID: 9005788634194721124}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8001531940360090998
 Rigidbody:
@@ -1239,7 +1239,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284449191349826891}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1255,9 +1255,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &3409187064638772072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,8 +1272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeingHeld: 0
   GrabButton: 0
-  Grabtype: 0
-  GrabPhysics: 0
+  Grabtype: 1
+  GrabPhysics: 1
   GrabMechanic: 0
   GrabSpeed: 15
   RemoteGrabbable: 1
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxRange: 25
-  Damage: 25
+  Damage: 1000
   FiringMethod: 0
   ReloadMethod: 0
   FiringRate: 1
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   RecoilDuration: 0.3
   ValidLayers:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 16386
   TriggerTransform: {fileID: 3597387619213405548}
   SlideTransform: {fileID: 0}
   MuzzlePointTransform: {fileID: 9113248580724537231}
@@ -1671,7 +1671,7 @@ GameObject:
   - component: {fileID: 1789581762504316322}
   - component: {fileID: 4151747125348514510}
   - component: {fileID: 1908671534829475722}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ClipRelease (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1757,7 +1757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 4e5ce0b6f97fdbc40b7bc818b06b80ba, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 4e5ce0b6f97fdbc40b7bc818b06b80ba, type: 3}
       propertyPath: m_Name
@@ -1765,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 4e5ce0b6f97fdbc40b7bc818b06b80ba, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4e5ce0b6f97fdbc40b7bc818b06b80ba, type: 3}
       propertyPath: m_RootOrder
@@ -1991,7 +1991,7 @@ PrefabInstance:
     - target: {fileID: 4213795611944346747, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6799183511233398105, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}
