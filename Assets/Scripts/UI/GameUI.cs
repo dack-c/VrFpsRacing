@@ -18,7 +18,9 @@ public class GameUI : MonoBehaviour
     public Damageable playerDamageable;
 
     private LapController LapController;
+    [SerializeField]
     private List<Image> itemIconDisplay;
+    [SerializeField]
     private List<Image> itemBorderDisplay;
     private static List<LapController> playerLaps = new List<LapController>();
 
@@ -38,10 +40,7 @@ public class GameUI : MonoBehaviour
         for (int i = 0; i < ItemSlotUI.Count; i++)
         {
             itemIconDisplay.Add(ItemSlotUI[i].transform.GetChild(0).transform.GetChild(0).GetComponent<Image>());
-            if (i < GameManager.I.PlayerItemController.selectedItem.Length)
-                ChangeSlotIcon(i, GameManager.I.PlayerItemController.selectedItem[i].itemIcon);
-            else
-                ChangeSlotIcon(i, null);
+            ChangeSlotIcon(i, GameManager.I.PlayerItemController.selectedItem[i].itemIcon);
             itemBorderDisplay.Add(ItemSlotUI[i].transform.GetChild(0).GetComponent<Image>());
         }
         SwitchSelectedSlot(0);
@@ -135,9 +134,13 @@ public class GameUI : MonoBehaviour
     /// <param name="itemIcon">Item icon to fit into the item slot. To set it to an empty icon, you can put null. </param>
     public void ChangeSlotIcon(int index, Sprite itemIcon)
     {
-        if (itemIcon == null)
-            itemIconDisplay[index].sprite = EmptyItemSprite;
+        if (itemIcon)
+        {
+            itemIconDisplay[index].sprite = itemIcon;
+            return;
+        }
 
-        itemIconDisplay[index].sprite = itemIcon;
+        itemIconDisplay[index].sprite = EmptyItemSprite;
+        return;
     }
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: NoItem
   m_EditorClassIdentifier: 
   itemName: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 550278196, guid: 7d74038f347451d4081e0d6e5c160a0a, type: 3}
   item: 0
+  isEquipable: 0
+  isDisposable: 0
   ItemPrefab: {fileID: 0}

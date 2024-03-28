@@ -18,7 +18,10 @@ public class ItemController : MonoBehaviour
     public void InitItemController()
     {
         for (int i = 0; i < selectedItem.Length; i++)
-            selectedItem[i] = noItem;
+        {
+            if (!selectedItem[i])
+                selectedItem[i] = noItem;
+        }
     }
 
     /// <summary>
