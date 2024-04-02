@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6750186285165479700}
   - component: {fileID: 7426281813633482855}
   - component: {fileID: 5663450985849206125}
+  - component: {fileID: 1939932563442984784}
   m_Layer: 16
   m_Name: RepairItem
   m_TagString: Untagged
@@ -155,6 +156,8 @@ MonoBehaviour:
   GrabPhysics: 1
   GrabMechanic: 0
   GrabSpeed: 15
+  isRaceItem: 1
+  raceItem: {fileID: 0}
   RemoteGrabbable: 0
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2
@@ -346,3 +349,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1939932563442984784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510360826866673648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61f83d1899a454439fc78840af934aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDefinition: {fileID: 11400000, guid: 8cf18798b5b12354fbdfe1104702828e, type: 2}
+  isEquipable: 1
+  isDisposable: 1

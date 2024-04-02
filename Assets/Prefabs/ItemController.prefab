@@ -44,15 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977d5f0074afd8d4b97747d95694bd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Grabbers:
+  - {fileID: 0}
+  - {fileID: 0}
   itemList:
-  - {fileID: 11400000, guid: 0557bb6a7a53d5f44bcb9dfd28314fcb, type: 2}
-  - {fileID: 11400000, guid: e2f140e4cadfb5343b0b676f7ce490d0, type: 2}
-  - {fileID: 11400000, guid: b5e93093af27a8e4c9d49bb35ee45317, type: 2}
-  - {fileID: 11400000, guid: b9b471d8db0b27b428bb4db76c94befe, type: 2}
-  noItem: {fileID: 11400000, guid: 58a5854641428414fbb659aa383faf37, type: 2}
+  - {fileID: 11400000, guid: f70014204b8768c4ebf864ebf87091e2, type: 2}
+  - {fileID: 11400000, guid: f12140a71d5cb9045af62c1b1eab2fc8, type: 2}
+  - {fileID: 11400000, guid: 8cf18798b5b12354fbdfe1104702828e, type: 2}
+  - {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
+  noItem: {fileID: 11400000, guid: 4d4f280b90ead6e41a71ef0d40c9f523, type: 2}
   selectedItem:
-  - {fileID: 11400000, guid: 58a5854641428414fbb659aa383faf37, type: 2}
-  - {fileID: 11400000, guid: 58a5854641428414fbb659aa383faf37, type: 2}
-  - {fileID: 11400000, guid: 58a5854641428414fbb659aa383faf37, type: 2}
-  - {fileID: 11400000, guid: 58a5854641428414fbb659aa383faf37, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemObjectSlot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentSlot: -1

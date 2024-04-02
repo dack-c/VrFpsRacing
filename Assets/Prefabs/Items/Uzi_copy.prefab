@@ -1631,6 +1631,7 @@ GameObject:
   - component: {fileID: 8465616288741125702}
   - component: {fileID: 7005999655146516887}
   - component: {fileID: 955441876542117970}
+  - component: {fileID: -7258172097572922718}
   m_Layer: 13
   m_Name: Uzi_copy
   m_TagString: Untagged
@@ -1725,6 +1726,8 @@ MonoBehaviour:
   GrabPhysics: 1
   GrabMechanic: 0
   GrabSpeed: 20
+  isRaceItem: 1
+  raceItem: {fileID: 0}
   RemoteGrabbable: 1
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2.5
@@ -2018,6 +2021,21 @@ MonoBehaviour:
   onRaycastHitEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-7258172097572922718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518468931415342182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61f83d1899a454439fc78840af934aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDefinition: {fileID: 11400000, guid: f12140a71d5cb9045af62c1b1eab2fc8, type: 2}
+  isEquipable: 1
+  isDisposable: 0
 --- !u!1 &3634714177351987279
 GameObject:
   m_ObjectHideFlags: 0

@@ -134,6 +134,7 @@ public class GameUI : MonoBehaviour
     /// <param name="itemIcon">Item icon to fit into the item slot. To set it to an empty icon, you can put null. </param>
     public void ChangeSlotIcon(int index, Sprite itemIcon)
     {
+        Debug.Log(GameManager.I.PlayerItemController.currentSlot);
         if (itemIcon)
         {
             itemIconDisplay[index].sprite = itemIcon;

@@ -1,13 +1,16 @@
+using BNG;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    public List<Grabber> Grabbers = new List<Grabber>();
     public ItemDefinition[] itemList;   // List of all items used in the game
     public ItemDefinition noItem;       // Dummy object for Null Item
     public ItemDefinition[] selectedItem = new ItemDefinition[4];       // inventory
-
+    public GameObject[] itemObjectSlot = new GameObject[4];
+    
     public int currentSlot = 0;
 
     public void Start()
@@ -19,18 +22,13 @@ public class ItemController : MonoBehaviour
     {
         for (int i = 0; i < selectedItem.Length; i++)
         {
-            if (!selectedItem[i])
-                selectedItem[i] = noItem;
+            if (selectedItem[i].item == ItemDefinition.Item.None)
+                itemObjectSlot[i] = null;
+            else
+            {
+                itemObjectSlot[i] = Instantiate(selectedItem[i].ItemPrefab);
+            }
         }
-    }
-
-    /// <summary>
-    /// Call when using an item in the current slot.
-    /// </summary>
-    public void UseItem()
-    {
-        if (selectedItem[currentSlot].Use())
-            CleanCurrentSlot();
     }
 
     /// <summary>
@@ -39,6 +37,7 @@ public class ItemController : MonoBehaviour
     public void CleanCurrentSlot()
     {
         selectedItem[currentSlot] = noItem;
+        itemObjectSlot[currentSlot] = null;
         GameManager.I.Hud.ChangeSlotIcon(currentSlot, null);
     }
     
@@ -47,12 +46,14 @@ public class ItemController : MonoBehaviour
     /// </summary>
     /// <param name="item"></param>
     /// <param name="index"></param>
-    public void AddItemToSlot(ItemDefinition item, int index)
+    public void AddItemToSlot(GameObject item, int index)
     {
+        RaceItem raceItem = item.GetComponent<RaceItem>();
         if (selectedItem[index].item == ItemDefinition.Item.None)
         {
-            GameManager.I.Hud.ChangeSlotIcon(currentSlot, item.itemIcon);
-            selectedItem[currentSlot] = item;
+            GameManager.I.Hud.ChangeSlotIcon(index, raceItem.itemDefinition.itemIcon);
+            selectedItem[currentSlot] = raceItem.itemDefinition;
+            itemObjectSlot[currentSlot] = item;
         }
         else
             Debug.Log($"There is already an item in the index-th item slot:{index}");
@@ -69,15 +70,17 @@ public class ItemController : MonoBehaviour
     {
         // check the current slot
         if (selectedItem[currentSlot].item == ItemDefinition.Item.None)
+        {
             return currentSlot;
+        }
 
         // check the other empty slot
         for (int i = 0; i < selectedItem.Length; i++)
         {
             if (selectedItem[i].item == ItemDefinition.Item.None)
-                continue;
-            else
                 return i;
+            else
+                continue;
         }
         
         // no empty slot
@@ -95,6 +98,23 @@ public class ItemController : MonoBehaviour
             return;
 
         // 이곳에 플레이어가 장착한 아이템을 장착 해제하는 함수 작성
+        foreach (var grabber in Grabbers)
+        {
+            if (!grabber.HeldGrabbable)
+            {
+                continue;
+            }
+
+            if (grabber.HeldGrabbable.isRaceItem)
+            {
+                GameObject tempItem = Instantiate(grabber.HeldGrabbable.gameObject);
+                itemObjectSlot[currentSlot] = tempItem;
+                Destroy(grabber.HeldGrabbable?.gameObject);
+                grabber.HeldGrabbable = null;
+                grabber.DidDrop();
+                break;
+            }
+        }
 
         currentSlot = index;
 
@@ -105,9 +125,20 @@ public class ItemController : MonoBehaviour
 
         GameManager.I.Hud.SwitchSelectedSlot();
 
-        if (selectedItem[currentSlot].isEquipable)
+        if (itemObjectSlot[currentSlot].GetComponent<RaceItem>().isEquipable)
         {
             // 이곳에 플레이어에게 아이템을 장착시키는 함수 작성
+            foreach (var grabber in Grabbers)
+            {
+                if (!grabber.HeldGrabbable)
+                {
+                    if (selectedItem[currentSlot].item != ItemDefinition.Item.None) {
+                        itemObjectSlot[currentSlot].transform.position = grabber.transform.position;
+                        grabber.GrabGrabbable(itemObjectSlot[currentSlot].GetComponent<Grabbable>(), true);
+                        break;
+                    }
+                }
+            }
         }
     }
 
