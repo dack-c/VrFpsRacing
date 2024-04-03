@@ -39,6 +39,7 @@ public class ItemController : MonoBehaviour
         selectedItem[currentSlot] = noItem;
         itemObjectSlot[currentSlot] = null;
         GameManager.I.Hud.ChangeSlotIcon(currentSlot, null);
+        Debug.Log($"Clean the current slot. slotNum: {currentSlot}");
     }
     
     /// <summary>
@@ -46,14 +47,16 @@ public class ItemController : MonoBehaviour
     /// </summary>
     /// <param name="item"></param>
     /// <param name="index"></param>
-    public void AddItemToSlot(GameObject item, int index)
+    public void AddItemToSlot(Grabbable item, int index)
     {
-        RaceItem raceItem = item.GetComponent<RaceItem>();
+        var raceItemDefinition = item.itemDefinition;
+        
         if (selectedItem[index].item == ItemDefinition.Item.None)
         {
-            GameManager.I.Hud.ChangeSlotIcon(index, raceItem.itemDefinition.itemIcon);
-            selectedItem[currentSlot] = raceItem.itemDefinition;
-            itemObjectSlot[currentSlot] = item;
+            GameManager.I.Hud.ChangeSlotIcon(index, raceItemDefinition.itemIcon);
+            selectedItem[currentSlot] = raceItemDefinition;
+            itemObjectSlot[currentSlot] = item.gameObject;
+            Debug.Log($"Add item:{raceItemDefinition.itemName} to {index}-th slot");
         }
         else
             Debug.Log($"There is already an item in the index-th item slot:{index}");
@@ -125,7 +128,7 @@ public class ItemController : MonoBehaviour
 
         GameManager.I.Hud.SwitchSelectedSlot();
 
-        if (itemObjectSlot[currentSlot].GetComponent<RaceItem>().isEquipable)
+        if (selectedItem[currentSlot].isEquipable)
         {
             // 이곳에 플레이어에게 아이템을 장착시키는 함수 작성
             foreach (var grabber in Grabbers)
