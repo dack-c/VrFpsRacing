@@ -17,3 +17,5 @@ MonoBehaviour:
   item: 5
   ItemPrefab: {fileID: 2450752326515213150, guid: ac28372cf05155544902f5bc7fc43931,
     type: 3}
+  isEquipable: 1
+  isDisposable: 0

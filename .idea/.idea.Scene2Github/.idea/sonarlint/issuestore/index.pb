@@ -17,5 +17,3 @@ d
 4Assets/BNG Framework/Scripts/Core/GrabbableEvents.cs,2\7\2796600fe62bb954ba22ba61f4f76af5f553bd1f
 ^
 .Assets/BNG Framework/Editor/ClimbableEditor.cs,7\3\7377ac8bfd4003b751d7a373f31e5d74932152dd
-\
-,Assets/Scripts/Scriptable Object/RaceItem.cs,4\d\4d8f3c46c78d2b41aac575c6910007049becc3ae

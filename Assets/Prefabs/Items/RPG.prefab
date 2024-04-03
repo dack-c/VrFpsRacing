@@ -222,7 +222,7 @@ MonoBehaviour:
   GrabMechanic: 1
   GrabSpeed: 7.5
   isRaceItem: 0
-  raceItem: {fileID: 0}
+  itemDefinition: {fileID: 0}
   RemoteGrabbable: 0
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2
@@ -1201,7 +1201,6 @@ GameObject:
   - component: {fileID: 7582260667606880524}
   - component: {fileID: 1096685538842869112}
   - component: {fileID: 2927258105324402421}
-  - component: {fileID: 1877632094613277773}
   m_Layer: 13
   m_Name: RPG
   m_TagString: Untagged
@@ -1232,7 +1231,7 @@ Transform:
   - {fileID: 8783159412269417100}
   - {fileID: 9005788634194721124}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8001531940360090998
 Rigidbody:
@@ -1280,7 +1279,7 @@ MonoBehaviour:
   GrabMechanic: 0
   GrabSpeed: 15
   isRaceItem: 1
-  raceItem: {fileID: 0}
+  itemDefinition: {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
   RemoteGrabbable: 1
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2.5
@@ -1665,21 +1664,6 @@ MonoBehaviour:
       m_Calls: []
   reloadsec: 3
   LaunchPrefab: {fileID: 0}
---- !u!114 &1877632094613277773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8284449191349826891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61f83d1899a454439fc78840af934aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDefinition: {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
-  isEquipable: 1
-  isDisposable: 1
 --- !u!1 &8330485297789972389
 GameObject:
   m_ObjectHideFlags: 0

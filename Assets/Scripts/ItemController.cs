@@ -27,7 +27,14 @@ public class ItemController : MonoBehaviour
             else
             {
                 itemObjectSlot[i] = Instantiate(selectedItem[i].ItemPrefab);
+                itemObjectSlot[i].transform.position = Vector3.zero;
             }
+        }
+
+        if (selectedItem[0])
+        {
+            Grabbers[0].GrabGrabbable(itemObjectSlot[0].GetComponent<Grabbable>(), true);
+            //itemObjectSlot[0].transform.position = Grabbers[0].transform.position + Vector3.down;
         }
     }
 
@@ -111,9 +118,13 @@ public class ItemController : MonoBehaviour
             if (grabber.HeldGrabbable.isRaceItem)
             {
                 GameObject tempItem = Instantiate(grabber.HeldGrabbable.gameObject);
+                tempItem.gameObject.transform.position = Vector3.zero;
                 itemObjectSlot[currentSlot] = tempItem;
                 Destroy(grabber.HeldGrabbable?.gameObject);
+
+                grabber.hasSwitchedSlot = true;
                 grabber.HeldGrabbable = null;
+                
                 grabber.DidDrop();
                 break;
             }
