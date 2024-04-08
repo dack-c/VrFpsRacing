@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8346391647458468666
 Rigidbody:
@@ -154,6 +154,8 @@ MonoBehaviour:
   GrabPhysics: 1
   GrabMechanic: 0
   GrabSpeed: 15
+  isRaceItem: 1
+  itemDefinition: {fileID: 11400000, guid: f70014204b8768c4ebf864ebf87091e2, type: 2}
   RemoteGrabbable: 0
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2

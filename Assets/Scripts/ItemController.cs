@@ -1,13 +1,16 @@
+using BNG;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    public List<Grabber> Grabbers = new List<Grabber>();
     public ItemDefinition[] itemList;   // List of all items used in the game
     public ItemDefinition noItem;       // Dummy object for Null Item
     public ItemDefinition[] selectedItem = new ItemDefinition[4];       // inventory
-
+    public GameObject[] itemObjectSlot = new GameObject[4];
+    
     public int currentSlot = 0;
 
     public void Start()
@@ -18,26 +21,21 @@ public class ItemController : MonoBehaviour
     public void InitItemController()
     {
         for (int i = 0; i < selectedItem.Length; i++)
-            selectedItem[i] = noItem;
-    }
+        {
+            if (selectedItem[i].item == ItemDefinition.Item.None)
+                itemObjectSlot[i] = null;
+            else
+            {
+                itemObjectSlot[i] = Instantiate(selectedItem[i].ItemPrefab);
+                itemObjectSlot[i].transform.position = Vector3.zero;
+            }
+        }
 
-    /// <summary>
-    /// Call when using an item in the current slot.
-    /// </summary>
-    public void UseItem()
-    {
-        if (selectedItem[currentSlot].Use())
-            CleanCurrentSlot();
-    }
-
-    /// <summary>
-    /// Called when dropping an item in the currently selected item slot into the world space.
-    /// </summary>
-    public void DropItem()
-    {
-        // 이곳에 월드에 아이템을 스폰하는 함수 작성
-
-        CleanCurrentSlot();
+        if (selectedItem[0])
+        {
+            Grabbers[0].GrabGrabbable(itemObjectSlot[0].GetComponent<Grabbable>(), true);
+            //itemObjectSlot[0].transform.position = Grabbers[0].transform.position + Vector3.down;
+        }
     }
 
     /// <summary>
@@ -46,33 +44,56 @@ public class ItemController : MonoBehaviour
     public void CleanCurrentSlot()
     {
         selectedItem[currentSlot] = noItem;
+        itemObjectSlot[currentSlot] = null;
         GameManager.I.Hud.ChangeSlotIcon(currentSlot, null);
+        Debug.Log($"Clean the current slot. slotNum: {currentSlot}");
+    }
+    
+    /// <summary>
+    /// Add the "item" in the "index"-th item slot when called.
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="index"></param>
+    public void AddItemToSlot(Grabbable item, int index)
+    {
+        var raceItemDefinition = item.itemDefinition;
+        
+        if (selectedItem[index].item == ItemDefinition.Item.None)
+        {
+            GameManager.I.Hud.ChangeSlotIcon(index, raceItemDefinition.itemIcon);
+            selectedItem[currentSlot] = raceItemDefinition;
+            itemObjectSlot[currentSlot] = item.gameObject;
+            Debug.Log($"Add item:{raceItemDefinition.itemName} to {index}-th slot");
+        }
+        else
+            Debug.Log($"There is already an item in the index-th item slot:{index}");
     }
 
     /// <summary>
     /// Call when you get items that are dropped in the world space.
-    /// Returns the index number of the slot in which the item was obtained. 
-    /// And returns -1 if the item was not obtained because the inventory was full.
+    /// First check whether the current slot is empty, then check whether there are other empty slots in order from index 0.
+    /// If an empty slot is found, the index value of the corresponding slot is returned.
+    /// If there is no empty slot, return -1.
     /// </summary>
-    /// <param name="item"></param>
     /// <returns></returns>
-    public int GetDropedItem(ItemDefinition item)
+    public int CheckEmptyIndex()
     {
-        for (int i = 0; i < selectedItem.Length; i++)
+        // check the current slot
+        if (selectedItem[currentSlot].item == ItemDefinition.Item.None)
         {
-            if (selectedItem[i] == noItem)
-                continue;
-            else
-            {
-                selectedItem[i] = item;
-                GameManager.I.Hud.ChangeSlotIcon(i, item.itemIcon);
-
-                // 이곳에 플레이어에게 아이템을 장착시키는 함수 작성
-
-                return i;
-            }
+            return currentSlot;
         }
 
+        // check the other empty slot
+        for (int i = 0; i < selectedItem.Length; i++)
+        {
+            if (selectedItem[i].item == ItemDefinition.Item.None)
+                return i;
+            else
+                continue;
+        }
+        
+        // no empty slot
         return -1;
     }
 
@@ -87,6 +108,27 @@ public class ItemController : MonoBehaviour
             return;
 
         // 이곳에 플레이어가 장착한 아이템을 장착 해제하는 함수 작성
+        foreach (var grabber in Grabbers)
+        {
+            if (!grabber.HeldGrabbable)
+            {
+                continue;
+            }
+
+            if (grabber.HeldGrabbable.isRaceItem)
+            {
+                GameObject tempItem = Instantiate(grabber.HeldGrabbable.gameObject);
+                tempItem.gameObject.transform.position = Vector3.zero;
+                itemObjectSlot[currentSlot] = tempItem;
+                Destroy(grabber.HeldGrabbable?.gameObject);
+
+                grabber.hasSwitchedSlot = true;
+                grabber.HeldGrabbable = null;
+                
+                grabber.DidDrop();
+                break;
+            }
+        }
 
         currentSlot = index;
 
@@ -100,29 +142,29 @@ public class ItemController : MonoBehaviour
         if (selectedItem[currentSlot].isEquipable)
         {
             // 이곳에 플레이어에게 아이템을 장착시키는 함수 작성
+            foreach (var grabber in Grabbers)
+            {
+                if (!grabber.HeldGrabbable)
+                {
+                    if (selectedItem[currentSlot].item != ItemDefinition.Item.None) {
+                        itemObjectSlot[currentSlot].transform.position = grabber.transform.position;
+                        grabber.GrabGrabbable(itemObjectSlot[currentSlot].GetComponent<Grabbable>(), true);
+                        break;
+                    }
+                }
+            }
         }
     }
 
 #if UNITY_EDITOR
-    // for Item Slot Debug
+    // for Item Slot Debug on Desktop
     public void OnGUI()
     {
-        if (GUI.Button(new Rect(100, 150, 100, 30), "Slop Left"))
-        {
+        if (GUI.Button(new Rect(100, 150, 100, 30), "Slot Left"))
             SwitchItem(currentSlot - 1);
-        }
+        
         if (GUI.Button(new Rect(200, 150, 100, 30), "Slot Right"))
-        {
             SwitchItem(currentSlot + 1);
-        }
-        if (GUI.Button(new Rect(300, 150, 100, 30), "Drop Item"))
-        {
-            DropItem();
-        }
-        if (GUI.Button(new Rect(400, 150, 100, 30), "Use Item"))
-        {
-            UseItem();
-        }
     }
 #endif
 }

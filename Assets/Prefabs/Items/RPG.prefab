@@ -221,6 +221,8 @@ MonoBehaviour:
   GrabPhysics: 0
   GrabMechanic: 1
   GrabSpeed: 7.5
+  isRaceItem: 0
+  itemDefinition: {fileID: 0}
   RemoteGrabbable: 0
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2
@@ -1214,7 +1216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284449191349826891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 861.5796, y: 11.6, z: 122.46392}
+  m_LocalPosition: {x: 249.0554, y: 11.402342, z: 151.92409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1229,7 +1231,7 @@ Transform:
   - {fileID: 8783159412269417100}
   - {fileID: 9005788634194721124}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8001531940360090998
 Rigidbody:
@@ -1270,12 +1272,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeingHeld: 0
+  BeingHeld: 1
   GrabButton: 0
   Grabtype: 1
   GrabPhysics: 1
   GrabMechanic: 0
   GrabSpeed: 15
+  isRaceItem: 1
+  itemDefinition: {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
   RemoteGrabbable: 1
   RemoteGrabMechanic: 0
   RemoteGrabDistance: 2.5
@@ -1293,7 +1297,7 @@ MonoBehaviour:
   MakeChildCollidersGrabbable: 0
   handPoseType: 0
   SelectedHandPose: {fileID: 0}
-  CustomHandPose: 50
+  CustomHandPose: 0
   SecondaryGrabBehavior: 0
   TwoHandedPosition: 1
   TwoHandedPostionLerpAmount: 0.5
@@ -1315,11 +1319,11 @@ MonoBehaviour:
   ApplyCorrectiveForce: 1
   MoveVelocityForce: 3000
   MoveAngularVelocityForce: 90
-  LastGrabTime: 0
-  LastDropTime: 0
+  LastGrabTime: 7.400101
+  LastDropTime: 7.400101
   AddControllerVelocityOnDrop: 1
   collisions: []
-  ActiveGrabPoint: {fileID: 0}
+  ActiveGrabPoint: {fileID: 6901207199636100648}
   SecondaryLookOffset: {x: 90, y: 0, z: 0}
   SecondaryLookAtTransform: {fileID: 0}
   LocalOffsetTransform: {fileID: 0}
