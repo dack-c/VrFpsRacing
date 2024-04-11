@@ -23,7 +23,8 @@ public class ItemDefinition : ScriptableObject
         Rpg9,
         MachineGun,
         RepairKit,
-        Booster
+        Booster,
+        Pistol
     }
     
     [Header("Item Info")]

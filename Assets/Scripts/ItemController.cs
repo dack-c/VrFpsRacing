@@ -13,6 +13,9 @@ public class ItemController : MonoBehaviour
     
     public int currentSlot = 0;
 
+    public float delayToSwitchItem = 0.5f;
+    private float timer = 0.0f;
+
     public void Start()
     {
         InitItemController();
@@ -117,8 +120,45 @@ public class ItemController : MonoBehaviour
 
             if (grabber.HeldGrabbable.isRaceItem)
             {
-                GameObject tempItem = Instantiate(grabber.HeldGrabbable.gameObject);
-                tempItem.gameObject.transform.position = Vector3.zero;
+                GameObject tempItem;
+                if (selectedItem[currentSlot].item == ItemDefinition.Item.Pistol)//pistol은 아이템 교체 후 다시 돌아오면, pistol이 투명화되는 버그 존재. 그것의 임시방편
+                {
+                    tempItem = Instantiate(selectedItem[currentSlot].ItemPrefab); //이건 아예 새로 아이템 생성하는거라, 탄창 수 등 현재 상태 반영못함. pistol은 어차피 탄창 무한이므로 노상관
+                    tempItem.gameObject.transform.position = Vector3.zero;
+                }
+                else
+                {
+                    tempItem = Instantiate(grabber.HeldGrabbable.gameObject);
+                    tempItem.gameObject.transform.position = Vector3.zero;
+
+                    //tempItem과 같이 딸려온 grabModel 삭제
+                    // GameObject copyedGrabModel = tempItem.GetComponent<Grabbable>().GetGrabPoint()?.GetChild(0)?.gameObject;
+                    Grabbable grabbableComponent = tempItem.GetComponent<Grabbable>();
+                    if (grabbableComponent.GrabPoints.Count > 0)// Uzi_copy, RPG일 경우
+                    {
+                        var grabPoint = grabbableComponent.GrabPoints[0];
+                        for (int i = 0; i < grabPoint.childCount; i++)
+                        {
+                            if (grabPoint.GetChild(i).name == "ModelsRight")
+                            {
+                                Destroy(grabPoint.GetChild(i).gameObject);
+                                break;
+                            }
+                        }
+                    }
+                    else// Booster, Repiar일 경우
+                    {
+                        for (int i = 0; i < tempItem.transform.childCount; i++)
+                        {
+                            if (tempItem.transform.GetChild(i).name == "ModelsRight")
+                            {
+                                Destroy(tempItem.transform.GetChild(i).gameObject);
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 itemObjectSlot[currentSlot] = tempItem;
                 Destroy(grabber.HeldGrabbable?.gameObject);
 
@@ -156,7 +196,26 @@ public class ItemController : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
+    public void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer >= delayToSwitchItem)
+        {
+            if (InputBridge.Instance.LeftThumbNear)
+            {
+                SwitchItem(currentSlot - 1);
+                timer = 0.0f;
+            }
+            else if (InputBridge.Instance.RightThumbNear)
+            {
+                SwitchItem(currentSlot + 1);
+                timer = 0.0f;
+            }
+            
+        }
+    }
+
+/*#if UNITY_EDITOR
     // for Item Slot Debug on Desktop
     public void OnGUI()
     {
@@ -166,5 +225,5 @@ public class ItemController : MonoBehaviour
         if (GUI.Button(new Rect(200, 150, 100, 30), "Slot Right"))
             SwitchItem(currentSlot + 1);
     }
-#endif
+#endif*/
 }

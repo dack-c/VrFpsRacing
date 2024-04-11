@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113830971770650017
 MonoBehaviour:
@@ -52,15 +52,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f12140a71d5cb9045af62c1b1eab2fc8, type: 2}
   - {fileID: 11400000, guid: 8cf18798b5b12354fbdfe1104702828e, type: 2}
   - {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
+  - {fileID: 11400000, guid: 882f0b0d9210a4b49b285b133f83a654, type: 2}
   noItem: {fileID: 11400000, guid: 4d4f280b90ead6e41a71ef0d40c9f523, type: 2}
   selectedItem:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 882f0b0d9210a4b49b285b133f83a654, type: 2}
+  - {fileID: 11400000, guid: f12140a71d5cb9045af62c1b1eab2fc8, type: 2}
+  - {fileID: 11400000, guid: 904969edd1355f041b5b892e255b3cb1, type: 2}
+  - {fileID: 11400000, guid: 8cf18798b5b12354fbdfe1104702828e, type: 2}
   itemObjectSlot:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   currentSlot: -1
+  delayToSwitchItem: 0.5

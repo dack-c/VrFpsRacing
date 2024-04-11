@@ -9,6 +9,8 @@ public class BoostItemController : MonoBehaviour
     public float boostPower = 300f;
 
     private VehicleControl vehicleControl; //플레이어가 탄 차량의 VehicleControl.cs
+    private bool isUsed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,12 @@ public class BoostItemController : MonoBehaviour
 
     public void StartBoost()// boostDuration만큼 부스트 작동
     {
-        StartCoroutine(StartBoostCoroutine());
+        if(!isUsed)
+        {
+            isUsed = true;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(StartBoostCoroutine());
+        }
     }
 
     private IEnumerator StartBoostCoroutine()
@@ -34,6 +41,9 @@ public class BoostItemController : MonoBehaviour
             yield return new WaitForSeconds(boostDuration);
             vehicleControl.carSetting.shiftPower = originalShiftPower;
             vehicleControl.shift = false;
+
+            GameManager.I.PlayerItemController.CleanCurrentSlot();
+            Destroy(gameObject);
         }
     }
 }

@@ -5,28 +5,27 @@ using UnityEngine;
 
 public class RepairItemController : MonoBehaviour
 {
-    public GameObject playableCar;
+    public GameObject player;
+    public float maxHealth;
 
     private Damageable damageable;
-    private float maxHealth;
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        if(playableCar == null)
+        if (player == null)
         {
-            Debug.LogError("repairItem의 차 레퍼런스가 null입니다! 할당해주세요.");
-        }
-        else
-        {
-            damageable = playableCar.GetComponent<Damageable>();
-            maxHealth = damageable.Health;
-            audioSource = GetComponent<AudioSource>();
+            player = GameObject.FindWithTag("Player");
         }
     }
 
     public void StartRepair()
     {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+        damageable = player.transform.parent.GetComponent<Damageable>();
+        audioSource = GetComponent<AudioSource>();
+
         damageable.Health = maxHealth;
 
         //수리 사운드 두 번 실행
@@ -38,5 +37,8 @@ public class RepairItemController : MonoBehaviour
     {
         audioSource.Stop();
         audioSource.Play();
+
+        GameManager.I.PlayerItemController.CleanCurrentSlot();
+        Destroy(gameObject, audioSource.clip.length);
     }
 }
