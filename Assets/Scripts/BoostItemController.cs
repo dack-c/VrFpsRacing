@@ -25,6 +25,7 @@ public class BoostItemController : MonoBehaviour
         if(!isUsed)
         {
             isUsed = true;
+            GameManager.I.PlayerItemController.CleanCurrentSlot();
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(StartBoostCoroutine());
         }
@@ -42,7 +43,7 @@ public class BoostItemController : MonoBehaviour
             vehicleControl.carSetting.shiftPower = originalShiftPower;
             vehicleControl.shift = false;
 
-            GameManager.I.PlayerItemController.CleanCurrentSlot();
+            
             Destroy(gameObject);
         }
     }

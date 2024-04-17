@@ -18,7 +18,35 @@ public class ItemController : MonoBehaviour
 
     public void Start()
     {
+        InitSelectedItem();
         InitItemController();
+    }
+
+    public void InitSelectedItem()
+    {
+        if(DataManager.I.selectedItemInfos == null || DataManager.I.selectedItemInfos.Length == 0 || DataManager.I.selectedItemInfos[0] == null)
+        {
+            return;
+        }
+
+        foreach(var item in itemList)// 기본 아이템인 pistol 배정
+        {
+            if(item.name == "Pistol")
+            {
+                selectedItem[0] = item;
+            }
+        }
+
+        for(int i = 0; i < DataManager.I.selectedItemInfos.Length; i++)// 선택 아이템들 배정
+        {
+            for(int j = 0; j < itemList.Length; j++)
+            {
+                if (DataManager.I.selectedItemInfos[i].name == itemList[j].name)
+                {
+                    selectedItem[i+1] = itemList[j];
+                }
+            }
+        }
     }
 
     public void InitItemController()

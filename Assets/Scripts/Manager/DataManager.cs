@@ -82,7 +82,8 @@ public class DataManager : MonoBehaviour
 
     public bool SaveRecordData(Record record) //Record데이터를 파일로 저장함
     {
-        records.Add(record);
+        //records.Add(record);
+        records.Insert(0, record);
         try
         {
             using (Stream ws = new FileStream(m_recordFilePath, FileMode.Create))
